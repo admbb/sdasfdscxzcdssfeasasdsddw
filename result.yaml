@@ -1,0 +1,1028 @@
+proxy-providers: {}
+proxies:
+- down: 10000
+  name: "\U0001F1EF\U0001F1F5 JP 001 | ⬇️ 103.71MB/s"
+  password: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  port: 1443
+  server: jp.mjhy2.com
+  skip-cert-verify: true
+  sni: jp.mjhy2.com
+  type: hysteria2
+  up: 10000
+- down: 10000
+  name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 87.66MB/s"
+  password: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  port: 1443
+  server: sg.mjhy2.com
+  skip-cert-verify: true
+  sni: sg.mjhy2.com
+  type: hysteria2
+  up: 10000
+- down: 10000
+  name: "\U0001F1F0\U0001F1F7 KR 001 | ⬇️ 84.21MB/s"
+  password: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  port: 1443
+  server: kr.mjhy2.com
+  skip-cert-verify: true
+  sni: kr.mjhy2.com
+  type: hysteria2
+  up: 10000
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 81.87MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 23855
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 77.53MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 36334
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 76.92MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 46780
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 72.88MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 37777
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 005 | ⬇️ 70.69MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 34555
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 006 | ⬇️ 70.26MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 36327
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 007 | ⬇️ 64.75MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 38777
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 008 | ⬇️ 57.36MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 34103
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 009 | ⬇️ 57.31MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 35336
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 010 | ⬇️ 56.94MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 36324
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 001 | ⬇️ 56.75MB/s"
+  network: ws
+  port: 16622
+  server: planb.mojcn.com
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 011 | ⬇️ 55.47MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 33339
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 001 | ⬇️ 54.83MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27004
+  server: fi50m1.yytls.top
+  skip-cert-verify: false
+  sni: fi50m1.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 002 | ⬇️ 54.11MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27013
+  server: f8l14t.yytls.top
+  skip-cert-verify: false
+  sni: f8l14t.yytls.top
+  type: anytls
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 012 | ⬇️ 52.85MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 37328
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 002 | ⬇️ 51.34MB/s"
+  network: ws
+  port: 16618
+  server: planb.mojcn.com
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 013 | ⬇️ 48.77MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 54001
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 014 | ⬇️ 46.48MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 38320
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 015 | ⬇️ 44.86MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 46899
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 016 | ⬇️ 42.94MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 57663
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 003 | ⬇️ 42.38MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27005
+  server: hhsgb7.yytls.top
+  skip-cert-verify: false
+  sni: hhsgb7.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 004 | ⬇️ 39.46MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27003
+  server: hmde2s.yytls.top
+  skip-cert-verify: false
+  sni: hmde2s.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 005 | ⬇️ 36.73MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27002
+  server: syusa3.yytls.top
+  skip-cert-verify: false
+  sni: syusa3.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 006 | ⬇️ 34.78MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27008
+  server: ff3wrd.yytls.top
+  skip-cert-verify: false
+  sni: ff3wrd.yytls.top
+  type: anytls
+  udp: true
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 003 | ⬇️ 33.91MB/s"
+  network: ws
+  port: 16616
+  server: planb.mojcn.com
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 007 | ⬇️ 33.87MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27015
+  server: ss7634.yytls.top
+  skip-cert-verify: false
+  sni: ss7634.yytls.top
+  type: anytls
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 017 | ⬇️ 33.70MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 34338
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 008 | ⬇️ 33.27MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27017
+  server: spsnoi.yytls.top
+  skip-cert-verify: false
+  sni: spsnoi.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 009 | ⬇️ 32.98MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27011
+  server: a5d02o.yytls.top
+  skip-cert-verify: false
+  sni: a5d02o.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 018 | ⬇️ 32.79MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 56000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  version: 5
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 010 | ⬇️ 30.32MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27027
+  server: sb2t60.yytls.top
+  skip-cert-verify: false
+  sni: sb2t60.yytls.top
+  type: anytls
+  udp: true
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 004 | ⬇️ 30.17MB/s"
+  network: ws
+  port: 16622
+  server: m.cnmjin.net
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 005 | ⬇️ 30.02MB/s"
+  network: ws
+  port: 16632
+  server: m.cnmjin.net
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 011 | ⬇️ 30.01MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27030
+  server: km26bo.yytls.top
+  skip-cert-verify: false
+  sni: km26bo.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 019 | ⬇️ 29.76MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 56000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  version: 5
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E8\U0001F1F3 CN 012 | ⬇️ 27.55MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 16810
+  reduce-rtt: false
+  server: go06oo.yydzx.xyz
+  sni: go06oo.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 006 | ⬇️ 27.47MB/s"
+  network: ws
+  port: 16617
+  server: planb.mojcn.com
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E8\U0001F1F3 CN 013 | ⬇️ 27.01MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 14037
+  reduce-rtt: false
+  server: ql9t9y.yydzx.xyz
+  sni: ql9t9y.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 014 | ⬇️ 26.69MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27018
+  server: zil5w6.yytls.top
+  skip-cert-verify: false
+  sni: zil5w6.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1EF\U0001F1F5 JP 002 | ⬇️ 26.65MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 14300
+  server: jcf31f.jp001.yyzhilian.top
+  skip-cert-verify: false
+  sni: jcf31f.jp001.yyzhilian.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 015 | ⬇️ 26.36MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27021
+  server: eltwj6.yytls.top
+  skip-cert-verify: false
+  sni: eltwj6.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E8\U0001F1F3 CN 016 | ⬇️ 26.05MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 17443
+  reduce-rtt: false
+  server: ybl5ql.yydzx.xyz
+  sni: ybl5ql.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
+- down: 300
+  name: "\U0001F1F7\U0001F1FA RU 001 | ⬇️ 26.04MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 41114
+  ports: 40000-50000
+  server: de1.jueduibupao.top
+  skip-cert-verify: true
+  sni: de1.jueduibupao.top
+  type: hysteria2
+  up: 300
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E8\U0001F1F3 CN 017 | ⬇️ 25.73MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 13681
+  reduce-rtt: false
+  server: j51ajz.yydzx.xyz
+  sni: j51ajz.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
+- down: 200
+  name: "\U0001F1E8\U0001F1F3 TW 001 | ⬇️ 24.02MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 43693
+  ports: 40000-50000
+  server: tw3.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw3.jueduibupao.top
+  type: hysteria2
+  up: 200
+- down: 300
+  hop-interval: 60
+  name: "\U0001F1EA\U0001F1EA EE 001 | ⬇️ 24.02MB/s"
+  obfs: salamander
+  obfs-password: MTgzMGIzMTg0M2M1ZjAzMA==
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 40961
+  ports: 40000-50000
+  server: lvs.jueduibupao.top
+  skip-cert-verify: true
+  sni: lvs.jueduibupao.top
+  type: hysteria2
+  up: 300
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 007 | ⬇️ 23.55MB/s"
+  network: ws
+  port: 16626
+  server: planb.mojcn.com
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 018 | ⬇️ 23.38MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27010
+  server: mb0by1.yytls.top
+  skip-cert-verify: false
+  sni: mb0by1.yytls.top
+  type: anytls
+  udp: true
+- down: 300
+  name: "\U0001F1FA\U0001F1F8 US 001 | ⬇️ 23.23MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 50001
+  server: ny.jueduibupao.top
+  skip-cert-verify: true
+  sni: ny.jueduibupao.top
+  type: hysteria2
+  up: 300
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E8\U0001F1F3 CN 019 | ⬇️ 23.17MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 15016
+  reduce-rtt: false
+  server: wjapuq.yydzx.xyz
+  sni: wjapuq.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 020 | ⬇️ 22.89MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 47925
+  ports: 40000-50000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 021 | ⬇️ 22.09MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 46322
+  ports: 40000-50000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 022 | ⬇️ 21.95MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 55556
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 023 | ⬇️ 21.31MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 36331
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1E8\U0001F1F3 TW 002 | ⬇️ 21.20MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 56000
+  server: tw3.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw3.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  version: 5
+- down: 200
+  name: "\U0001F1E8\U0001F1F3 TW 003 | ⬇️ 20.82MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 30078
+  server: tw2.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw2.jueduibupao.top
+  type: hysteria2
+  up: 200
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 024 | ⬇️ 20.48MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 46660
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 025 | ⬇️ 20.32MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 36321
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 008 | ⬇️ 20.14MB/s"
+  network: ws
+  port: 16618
+  server: m.cnmjin.net
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1E8\U0001F1F3 TW 004 | ⬇️ 19.85MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 56000
+  server: tw2.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw2.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  version: 5
+- down: 300
+  name: "\U0001F1EC\U0001F1E7 GB 001 | ⬇️ 19.63MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 46337
+  ports: 40000-50000
+  server: uk1.jueduibupao.top
+  skip-cert-verify: true
+  sni: uk1.jueduibupao.top
+  type: hysteria2
+  up: 300
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 009 | ⬇️ 17.71MB/s"
+  network: ws
+  port: 16616
+  server: m.cnmjin.net
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 026 | ⬇️ 17.49MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 33001
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- down: 10000
+  name: "\U0001F1E9\U0001F1EA DE 010 | ⬇️ 17.27MB/s"
+  password: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  port: 1443
+  server: de.mjhy2.com
+  skip-cert-verify: true
+  sni: de.mjhy2.com
+  type: hysteria2
+  up: 10000
+- alterId: 0
+  cipher: auto
+  client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: "\U0001F1FA\U0001F1F8 US 002 | ⬇️ 16.84MB/s"
+  network: tcp
+  port: 8080
+  reality-opts:
+    public-key: U8qMhMopoDP9qhxcbKuObAGQrCAB_O0bEViDDx9M42E
+    short-id: null
+  server: us2.892622.xyz
+  servername: www.microsoft.com
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 70d72972-e9b1-48c3-9fb5-80125ff951ec
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 011 | ⬇️ 16.29MB/s"
+  network: ws
+  port: 16644
+  server: m.cnmjin.net
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 012 | ⬇️ 16.08MB/s"
+  network: ws
+  port: 16617
+  server: m.cnmjin.net
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- down: 300
+  name: "\U0001F1F7\U0001F1FA RU 002 | ⬇️ 16.04MB/s"
+  password: 70d72972-e9b1-48c3-9fb5-80125ff951ec
+  port: 8080
+  server: elsxxx.892622.xyz
+  skip-cert-verify: false
+  sni: elsxxx.892622.xyz
+  type: hysteria2
+  up: 300
+- down: 300
+  name: "\U0001F1EF\U0001F1F5 JP 003 | ⬇️ 14.85MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 43845
+  ports: 40000-50000
+  server: linjp1.jueduibupao.top
+  skip-cert-verify: true
+  sni: linjp1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- alterId: 0
+  cipher: auto
+  client-fingerprint: ios
+  flow: xtls-rprx-vision
+  name: "\U0001F1FA\U0001F1F8 US 003 | ⬇️ 14.29MB/s"
+  network: tcp
+  port: 26701
+  reality-opts:
+    public-key: Qcx6QrYMozeBOrdzg8I-BfxXxgPP_CbPZgVCzK5vCH4
+    short-id: null
+  server: us3.892622.xyz
+  servername: www.microsoft.com
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 70d72972-e9b1-48c3-9fb5-80125ff951ec
+- flow: xtls-rprx-vision
+  name: "\U0001F1FA\U0001F1F8 US 004 | ⬇️ 14.18MB/s"
+  network: tcp
+  port: 17666
+  server: usvless.yydzx.xyz
+  servername: usvless.yydzx.xyz
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 020 | ⬇️ 14.17MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27024
+  server: fec127.yytls.top
+  skip-cert-verify: false
+  sni: fec127.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "yyss_\U0001F1EE\U0001F1F3 印度 01"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27022
+  server: dycxfe.yytls.top
+  skip-cert-verify: false
+  sni: dycxfe.yytls.top
+  type: anytls
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 027 | ⬇️ 13.81MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 37000
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 028 | ⬇️ 13.73MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 55557
+  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  type: ss
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 021 | ⬇️ 13.71MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27014
+  server: f2m6gp.yytls.top
+  skip-cert-verify: false
+  sni: f2m6gp.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E9\U0001F1EA DE 013 | ⬇️ 13.71MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 15965
+  reduce-rtt: false
+  server: detuic.yydzx.xyz
+  sni: detuic.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E8\U0001F1F3 CN 022 | ⬇️ 13.35MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 11554
+  reduce-rtt: false
+  server: nfxm3l.yydzx.xyz
+  sni: nfxm3l.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 023 | ⬇️ 13.20MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27026
+  server: ukn42g.yytls.top
+  skip-cert-verify: false
+  sni: ukn42g.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 024 | ⬇️ 12.59MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27007
+  server: rgw5d9.yytls.top
+  skip-cert-verify: false
+  sni: rgw5d9.yytls.top
+  type: anytls
+  udp: true
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 014 | ⬇️ 12.18MB/s"
+  network: ws
+  port: 16645
+  server: m.cnmjin.net
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 025 | ⬇️ 11.59MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27029
+  server: lme8ub.yytls.top
+  skip-cert-verify: false
+  sni: lme8ub.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 026 | ⬇️ 10.21MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27016
+  server: hmorwg.yytls.top
+  skip-cert-verify: false
+  sni: hmorwg.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E8\U0001F1F3 CN 027 | ⬇️ 8.86MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 12528
+  reduce-rtt: false
+  server: e28wua.yydzx.xyz
+  sni: e28wua.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 015 | ⬇️ 8.17MB/s"
+  network: ws
+  port: 16641
+  server: planb.mojcn.com
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 028 | ⬇️ 7.91MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27012
+  server: mdw2nc.yytls.top
+  skip-cert-verify: false
+  sni: mdw2nc.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 029 | ⬇️ 7.70MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27009
+  server: fc2obe.yytls.top
+  skip-cert-verify: false
+  sni: fc2obe.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 030 | ⬇️ 7.46MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27019
+  server: uthmi4.yytls.top
+  skip-cert-verify: false
+  sni: uthmi4.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 031 | ⬇️ 7.18MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27006
+  server: tylq14.yytls.top
+  skip-cert-verify: false
+  sni: tylq14.yytls.top
+  type: anytls
+  udp: true
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 016 | ⬇️ 6.26MB/s"
+  network: ws
+  port: 16648
+  server: planb.mojcn.com
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
+- alterId: 0
+  cipher: auto
+  name: "\U0001F1E9\U0001F1EA DE 017 | ⬇️ 5.08MB/s"
+  network: ws
+  port: 16644
+  server: planb.mojcn.com
+  type: vmess
+  udp: true
+  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
+  ws-opts:
+    headers:
+      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
+    path: /
