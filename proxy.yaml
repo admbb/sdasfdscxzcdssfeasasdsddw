@@ -1,1 +1,1 @@
-test
+{"status":"failed","error":{"code":"INTERNAL_SERVER_ERROR","type":"InternalServerError","message":"Failed to download collection: all","details":"Reason: 组合订阅 all 的子订阅 mj 发生错误, 请查看日志"}}
