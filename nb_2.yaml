@@ -1,7 +1,31 @@
 proxy-providers: {}
 proxies:
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 34.13MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 56000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  version: 5
 - down: 300
-  name: "\U0001F1F7\U0001F1FA RU 001 | ⬇️ 26.27MB/s"
+  name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 32.64MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 49798
+  ports: 40000-50000
+  server: hk3.jueduibupao.top
+  skip-cert-verify: true
+  sni: hk3.jueduibupao.top
+  type: hysteria2
+  up: 200
+- down: 300
+  name: "\U0001F1F7\U0001F1FA RU 001 | ⬇️ 26.70MB/s"
   password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
   port: 42391
   ports: 40000-50000
@@ -12,7 +36,7 @@ proxies:
   up: 300
 - down: 300
   hop-interval: 60
-  name: "\U0001F1EA\U0001F1EA EE 001 | ⬇️ 24.01MB/s"
+  name: "\U0001F1EA\U0001F1EA EE 001 | ⬇️ 24.49MB/s"
   obfs: salamander
   obfs-password: MTgzMGIzMTg0M2M1ZjAzMA==
   password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
@@ -23,10 +47,63 @@ proxies:
   sni: lvs.jueduibupao.top
   type: hysteria2
   up: 300
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 23.36MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 44020
+  ports: 40000-50000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
 - alpn:
   - h3
   congestion-controller: bbr
-  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 21.27MB/s"
+  name: "\U0001F1E8\U0001F1F3 TW 001 | ⬇️ 22.60MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 56000
+  server: tw2.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw2.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  version: 5
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 22.60MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 40521
+  ports: 40000-50000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- down: 200
+  name: "\U0001F1E8\U0001F1F3 TW 002 | ⬇️ 21.89MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 45589
+  ports: 40000-50000
+  server: tw3.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw3.jueduibupao.top
+  type: hysteria2
+  up: 200
+- down: 200
+  name: "\U0001F1E8\U0001F1F3 TW 003 | ⬇️ 21.80MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 30078
+  server: tw2.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw2.jueduibupao.top
+  type: hysteria2
+  up: 200
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 005 | ⬇️ 21.36MB/s"
   password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
   port: 56000
   server: hkt1.jueduibupao.top
@@ -37,3 +114,12 @@ proxies:
   udp-relay-mode: native
   uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
   version: 5
+- down: 300
+  name: "\U0001F1FA\U0001F1F8 US 001 | ⬇️ 21.03MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 50001
+  server: ny.jueduibupao.top
+  skip-cert-verify: true
+  sni: ny.jueduibupao.top
+  type: hysteria2
+  up: 300
