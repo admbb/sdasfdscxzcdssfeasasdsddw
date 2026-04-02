@@ -1,0 +1,206 @@
+proxy-providers: {}
+proxies:
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 001 | ⬇️ 39.63MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27004
+  server: d98nql.yytls.top
+  skip-cert-verify: false
+  sni: d98nql.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 002 | ⬇️ 35.35MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27002
+  server: ixvaia.yytls.top
+  skip-cert-verify: false
+  sni: ixvaia.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 003 | ⬇️ 34.94MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27003
+  server: cg5xne.yytls.top
+  skip-cert-verify: false
+  sni: cg5xne.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 004 | ⬇️ 27.25MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27024
+  server: at4g1e.yytls.top
+  skip-cert-verify: false
+  sni: at4g1e.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 005 | ⬇️ 25.96MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27017
+  server: d47t08.yytls.top
+  skip-cert-verify: false
+  sni: d47t08.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 006 | ⬇️ 25.92MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27022
+  server: jrygqz.yytls.top
+  skip-cert-verify: false
+  sni: jrygqz.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 007 | ⬇️ 25.77MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27026
+  server: ukyi3e.yytls.top
+  skip-cert-verify: false
+  sni: ukyi3e.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 008 | ⬇️ 25.62MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27010
+  server: fqldp4.yytls.top
+  skip-cert-verify: false
+  sni: fqldp4.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 009 | ⬇️ 24.85MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27028
+  server: eslnit.yytls.top
+  skip-cert-verify: false
+  sni: eslnit.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 010 | ⬇️ 24.70MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27021
+  server: hb85x0.yytls.top
+  skip-cert-verify: false
+  sni: hb85x0.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 011 | ⬇️ 24.67MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27008
+  server: a4a2oq.yytls.top
+  skip-cert-verify: false
+  sni: a4a2oq.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 012 | ⬇️ 23.47MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27018
+  server: m4ctl1.yytls.top
+  skip-cert-verify: false
+  sni: m4ctl1.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 013 | ⬇️ 22.76MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27005
+  server: ot9nqp.yytls.top
+  skip-cert-verify: false
+  sni: ot9nqp.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 014 | ⬇️ 22.55MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27013
+  server: t8v4rg.yytls.top
+  skip-cert-verify: false
+  sni: t8v4rg.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 015 | ⬇️ 21.10MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27011
+  server: uhoedt.yytls.top
+  skip-cert-verify: false
+  sni: uhoedt.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 016 | ⬇️ 20.64MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27029
+  server: o9prdp.yytls.top
+  skip-cert-verify: false
+  sni: o9prdp.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 017 | ⬇️ 20.23MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27025
+  server: gsoxe1.yytls.top
+  skip-cert-verify: false
+  sni: gsoxe1.yytls.top
+  type: anytls
+  udp: true
