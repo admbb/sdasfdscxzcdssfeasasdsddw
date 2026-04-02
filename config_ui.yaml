@@ -109,8 +109,8 @@ dns:
 # 没有再使用锚点，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
 proxy-groups:
   - {name: 🌐 手动选择, type: select, include-all: true, filter: "^(?!.*(过滤|直连|家|官网|剩余|流量|套餐|到期|重置)).*$"}
-  - {name: 🤖 AI, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?=.*(Gemini|GPT|AI)).*$", url: http://www.gstatic.com/generate_204}
-  - {name: 🤖 Gemini, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?:(?=.*Gemini)(?=.*[新日美])|(?=.*yyss)(?=.*4x)(?=.*[新日美])|(?=.*nb)(?=.*AI)).*", url: http://www.gstatic.com/generate_204}
+  - {name: 🤖 AI, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?=.*(Gemini|GPT)).*$", url: http://www.gstatic.com/generate_204}
+  - {name: 🤖 Gemini, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?:(?=.*Gemini)(?=.*[新日美])|(?=.*yyss)(?=.*4x)(?=.*[新日美])).*", url: http://www.gstatic.com/generate_204}
   - {name: 📹 YouTube, type: select, proxies: [📀 媒体影院, 🎥 NETFLIX节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
   - {name: 🍀 Google, type: select, proxies: [♻️ 高速节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
   - {name: 👨🏿‍💻 GitHub, type: select, proxies: [♻️ 高速节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
