@@ -1,2 +1,12 @@
 proxy-providers: {}
-proxies: []
+proxies:
+- down: 300
+  name: "\U0001F1F7\U0001F1FA RU 001 | ⬇️ 10.72MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 44263
+  ports: 40000-50000
+  server: de1.jueduibupao.top
+  skip-cert-verify: true
+  sni: de1.jueduibupao.top
+  type: hysteria2
+  up: 300
