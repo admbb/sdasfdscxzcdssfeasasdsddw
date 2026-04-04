@@ -3,7 +3,7 @@ proxies:
 - alpn:
   - h3
   congestion-controller: bbr
-  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 22.98MB/s"
+  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 21.89MB/s"
   password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
   port: 56000
   server: hkt2.jueduibupao.top
@@ -14,13 +14,3 @@ proxies:
   udp-relay-mode: native
   uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
   version: 5
-- down: 200
-  name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 20.51MB/s"
-  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
-  port: 42440
-  ports: 40000-50000
-  server: hkt2.jueduibupao.top
-  skip-cert-verify: true
-  sni: hkt1.jueduibupao.top
-  type: hysteria2
-  up: 100
