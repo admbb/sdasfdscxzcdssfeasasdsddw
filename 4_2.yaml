@@ -1,19 +1,19 @@
 proxy-providers: {}
 proxies:
 - down: 300
-  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 30.03MB/s"
+  name: "\U0001F1F7\U0001F1FA RU 001 | ⬇️ 24.61MB/s"
   password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
-  port: 46925
+  port: 41142
   ports: 40000-50000
-  server: hk3.jueduibupao.top
+  server: de1.jueduibupao.top
   skip-cert-verify: true
-  sni: hk3.jueduibupao.top
+  sni: de1.jueduibupao.top
   type: hysteria2
-  up: 200
+  up: 300
 - alpn:
   - h3
   congestion-controller: bbr
-  name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 25.86MB/s"
+  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 22.64MB/s"
   password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
   port: 56000
   server: hkt2.jueduibupao.top
@@ -26,7 +26,7 @@ proxies:
   version: 5
 - down: 300
   hop-interval: 60
-  name: "\U0001F1EA\U0001F1EA EE 001 | ⬇️ 25.30MB/s"
+  name: "\U0001F1EA\U0001F1EA EE 001 | ⬇️ 21.43MB/s"
   obfs: salamander
   obfs-password: MTgzMGIzMTg0M2M1ZjAzMA==
   password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
@@ -37,18 +37,8 @@ proxies:
   sni: lvs.jueduibupao.top
   type: hysteria2
   up: 300
-- down: 300
-  name: "\U0001F1F7\U0001F1FA RU 001 | ⬇️ 25.17MB/s"
-  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
-  port: 41142
-  ports: 40000-50000
-  server: de1.jueduibupao.top
-  skip-cert-verify: true
-  sni: de1.jueduibupao.top
-  type: hysteria2
-  up: 300
 - down: 200
-  name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 21.89MB/s"
+  name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 20.24MB/s"
   password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
   port: 42440
   ports: 40000-50000
@@ -57,12 +47,3 @@ proxies:
   sni: hkt1.jueduibupao.top
   type: hysteria2
   up: 100
-- down: 200
-  name: "\U0001F1E8\U0001F1F3 TW 001 | ⬇️ 21.28MB/s"
-  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
-  port: 30078
-  server: tw2.jueduibupao.top
-  skip-cert-verify: true
-  sni: tw2.jueduibupao.top
-  type: hysteria2
-  up: 200
