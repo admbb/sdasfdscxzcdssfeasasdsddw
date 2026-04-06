@@ -1,22 +1,2 @@
 proxy-providers: {}
-proxies:
-- down: 200
-  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 21.88MB/s"
-  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
-  port: 44495
-  ports: 40000-50000
-  server: hkt2.jueduibupao.top
-  skip-cert-verify: true
-  sni: hkt1.jueduibupao.top
-  type: hysteria2
-  up: 100
-- down: 200
-  name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 20.06MB/s"
-  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
-  port: 46627
-  ports: 40000-50000
-  server: hkt1.jueduibupao.top
-  skip-cert-verify: true
-  sni: hkt1.jueduibupao.top
-  type: hysteria2
-  up: 100
+proxies: []
