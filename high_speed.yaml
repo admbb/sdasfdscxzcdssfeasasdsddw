@@ -1,7 +1,14 @@
 proxy-providers: {}
 proxies:
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 67.23MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 38777
+  server: account-center.zzdy25.com
+  type: ss
+  udp: true
 - down: 10000
-  name: "\U0001F1EF\U0001F1F5 JP 001 | ⬇️ 104.71MB/s"
+  name: "\U0001F1EF\U0001F1F5 JP 001 | ⬇️ 64.08MB/s"
   password: cba7dc87-faa7-4ed9-b457-3aee6ce51930
   port: 1443
   server: jp.mjhy2.com
@@ -9,8 +16,15 @@ proxies:
   sni: jp.mjhy2.com
   type: hysteria2
   up: 10000
+- cipher: chacha20-ietf-poly1305
+  name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 47.86MB/s"
+  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
+  port: 57663
+  server: account-center.zzdy25.com
+  type: ss
+  udp: true
 - down: 10000
-  name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 91.18MB/s"
+  name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 43.62MB/s"
   password: cba7dc87-faa7-4ed9-b457-3aee6ce51930
   port: 1443
   server: sg.mjhy2.com
@@ -18,43 +32,8 @@ proxies:
   sni: sg.mjhy2.com
   type: hysteria2
   up: 10000
-- cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 76.39MB/s"
-  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
-  port: 36334
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 74.08MB/s"
-  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
-  port: 34555
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 73.65MB/s"
-  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
-  port: 37328
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 72.78MB/s"
-  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
-  port: 23855
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 005 | ⬇️ 72.44MB/s"
-  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
-  port: 34103
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
-  type: ss
-  udp: true
 - down: 10000
-  name: "\U0001F1F0\U0001F1F7 KR 001 | ⬇️ 71.73MB/s"
+  name: "\U0001F1F0\U0001F1F7 KR 001 | ⬇️ 38.26MB/s"
   password: cba7dc87-faa7-4ed9-b457-3aee6ce51930
   port: 1443
   server: kr.mjhy2.com
@@ -62,51 +41,120 @@ proxies:
   sni: kr.mjhy2.com
   type: hysteria2
   up: 10000
-- cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 006 | ⬇️ 61.33MB/s"
-  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
-  port: 38777
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
-  type: ss
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 001 | ⬇️ 37.71MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27013
+  server: d8mwes.yytls.top
+  skip-cert-verify: false
+  sni: d8mwes.yytls.top
+  type: anytls
   udp: true
 - cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 007 | ⬇️ 60.64MB/s"
-  password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
-  port: 36324
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
-  type: ss
-  udp: true
-- cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 008 | ⬇️ 58.00MB/s"
+  name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 36.58MB/s"
   password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
   port: 46780
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  server: auth-center.zzdy25.com
   type: ss
   udp: true
-- alterId: 0
-  cipher: auto
-  name: "\U0001F1E9\U0001F1EA DE 001 | ⬇️ 57.81MB/s"
-  network: ws
-  port: 16622
-  server: planb.mojcn.com
-  type: vmess
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 002 | ⬇️ 35.79MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27008
+  server: x7ssup.yytls.top
+  skip-cert-verify: false
+  sni: x7ssup.yytls.top
+  type: anytls
   udp: true
-  uuid: cba7dc87-faa7-4ed9-b457-3aee6ce51930
-  ws-opts:
-    headers:
-      Host: 2c648ed09f447a3893e9d61d6f6d8aeb.mobgslb.tbcache.com
-    path: /
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 003 | ⬇️ 35.57MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27020
+  server: l1vbdc.yytls.top
+  skip-cert-verify: false
+  sni: l1vbdc.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 004 | ⬇️ 34.80MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27016
+  server: ws9c8p.yytls.top
+  skip-cert-verify: false
+  sni: ws9c8p.yytls.top
+  type: anytls
+  udp: true
 - cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 009 | ⬇️ 56.76MB/s"
+  name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 34.31MB/s"
   password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
-  port: 35336
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  port: 34103
+  server: auth-center.zzdy25.com
   type: ss
   udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 005 | ⬇️ 34.28MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27002
+  server: lb90rh.yytls.top
+  skip-cert-verify: false
+  sni: lb90rh.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 006 | ⬇️ 33.42MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27005
+  server: a4l9jt.yytls.top
+  skip-cert-verify: false
+  sni: a4l9jt.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 007 | ⬇️ 33.31MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27003
+  server: bhusii.yytls.top
+  skip-cert-verify: false
+  sni: bhusii.yytls.top
+  type: anytls
+  udp: true
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1E8\U0001F1F3 CN 008 | ⬇️ 32.70MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 27007
+  server: lfjro2.yytls.top
+  skip-cert-verify: false
+  sni: lfjro2.yytls.top
+  type: anytls
+  udp: true
 - cipher: chacha20-ietf-poly1305
-  name: "\U0001F1ED\U0001F1F0 HK 010 | ⬇️ 51.76MB/s"
+  name: "\U0001F1ED\U0001F1F0 HK 005 | ⬇️ 31.30MB/s"
   password: c5a6eb8e-9fb6-4ffe-874e-eceb62db12b8
-  port: 33339
-  server: f4d7f1c2f3b80976a5e2c1d4b3f0f321.358.onl
+  port: 46899
+  server: auth-center.zzdy25.com
   type: ss
   udp: true
