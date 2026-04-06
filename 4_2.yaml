@@ -1,2 +1,195 @@
 proxy-providers: {}
-proxies: []
+proxies:
+- alterId: 0
+  cipher: auto
+  client-fingerprint: chrome
+  encryption: none
+  flow: xtls-rprx-vision
+  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 70.00MB/s"
+  network: tcp
+  port: 62000
+  reality-opts:
+    public-key: sc6t_9mmZg5eUHkX8ofFCjRo7h5i7-PPIE23uL5K5wI
+    short-id: 9d07cd3f4fe6
+  server: 95.40.11.70
+  servername: zh-hk.vuejs.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+- alterId: 0
+  cipher: auto
+  client-fingerprint: chrome
+  encryption: none
+  flow: xtls-rprx-vision
+  name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 68.15MB/s"
+  network: tcp
+  port: 62000
+  reality-opts:
+    public-key: SzgaFBxktidLMlWtNGaDwIepVP10l7DoCRAkQWQEqy4
+    short-id: a5a1d5f22ad4
+  server: 6b-hk2.jueduibupao.top
+  servername: zh-hk.vuejs.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+- alterId: 0
+  cipher: auto
+  client-fingerprint: chrome
+  encryption: none
+  flow: xtls-rprx-vision
+  name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 66.26MB/s"
+  network: tcp
+  port: 62000
+  reality-opts:
+    public-key: jzYhzQZCFy5_9CZGznHgQelaq1qdOXL9VWC68bET0z4
+    short-id: 70b8176274
+  server: 6b-hk3.jueduibupao.top
+  servername: zh-hk.vuejs.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+- alterId: 0
+  cipher: auto
+  client-fingerprint: chrome
+  encryption: none
+  flow: xtls-rprx-vision
+  name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 45.53MB/s"
+  network: tcp
+  port: 62288
+  reality-opts:
+    public-key: Cs8t1TEI9TjwZmwNXKsKR3glWm-6ZnQqTx2-r2ll4iE
+    short-id: 9f45ac8e84462e09
+  server: 6b-sg1.jueduibupao.top
+  servername: zh-hk.vuejs.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+- alterId: 0
+  cipher: auto
+  client-fingerprint: chrome
+  encryption: none
+  flow: xtls-rprx-vision
+  name: "\U0001F1F8\U0001F1EC SG 002 | ⬇️ 45.38MB/s"
+  network: tcp
+  port: 62099
+  reality-opts:
+    public-key: DbnyvMj20VBIJEN3nFK65CmQt8kD-mSc2AZVGdP6q3E
+    short-id: 1ba3be9b9a
+  server: 6b-sg2.jueduibupao.top
+  servername: zh-hk.vuejs.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 30.70MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 56000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  version: 5
+- down: 300
+  hop-interval: 60
+  name: "\U0001F1EA\U0001F1EA EE 001 | ⬇️ 25.81MB/s"
+  obfs: salamander
+  obfs-password: MTgzMGIzMTg0M2M1ZjAzMA==
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 41708
+  ports: 40000-50000
+  server: lvs.jueduibupao.top
+  skip-cert-verify: true
+  sni: lvs.jueduibupao.top
+  type: hysteria2
+  up: 300
+- down: 300
+  name: "\U0001F1F7\U0001F1FA RU 001 | ⬇️ 24.97MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 46839
+  ports: 40000-50000
+  server: de1.jueduibupao.top
+  skip-cert-verify: true
+  sni: de1.jueduibupao.top
+  type: hysteria2
+  up: 300
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 005 | ⬇️ 24.65MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 56000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  version: 5
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1E8\U0001F1F3 TW 001 | ⬇️ 23.63MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 56000
+  server: tw2.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw2.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  version: 5
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 006 | ⬇️ 22.42MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 44495
+  ports: 40000-50000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 007 | ⬇️ 22.19MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 46627
+  ports: 40000-50000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- down: 300
+  name: "\U0001F1FA\U0001F1F8 US 001 | ⬇️ 20.89MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 50001
+  server: ny.jueduibupao.top
+  skip-cert-verify: true
+  sni: ny.jueduibupao.top
+  type: hysteria2
+  up: 300
+- down: 200
+  name: "\U0001F1E8\U0001F1F3 TW 002 | ⬇️ 20.10MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 30078
+  server: tw2.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw2.jueduibupao.top
+  type: hysteria2
+  up: 200
