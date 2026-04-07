@@ -1,2 +1,11 @@
 proxy-providers: {}
-proxies: []
+proxies:
+- down: 300
+  name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 22.55MB/s"
+  password: 70d72972-e9b1-48c3-9fb5-80125ff951ec
+  port: 8080
+  server: st2zsdfgsa.892622.xyz
+  skip-cert-verify: false
+  sni: st2zsdfgsa.892622.xyz
+  type: hysteria2
+  up: 300
