@@ -1,20 +1,2 @@
 proxy-providers: {}
-proxies:
-- alterId: 0
-  cipher: auto
-  client-fingerprint: chrome
-  encryption: none
-  flow: xtls-rprx-vision
-  name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 35.83MB/s"
-  network: tcp
-  port: 443
-  reality-opts:
-    public-key: c1Bo1ZICrXo7jJq_bdLsd_VxpFIyvmlLGBExi8JkQUM
-    short-id: 4491c33d2e
-  server: 185.229.222.21
-  servername: zh-hk.vuejs.org
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+proxies: []
