@@ -1,2 +1,39 @@
 proxy-providers: {}
-proxies: []
+proxies:
+- cipher: 2022-blake3-aes-128-gcm
+  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 27.90MB/s"
+  password: MjY5ZDczM2I3OGYyNmNmYQ==:ZGU0ZTVjZmItNjY3Ni00YQ==
+  plugin: shadow-tls
+  plugin-opts:
+    host: www.microsoft.com
+    password: abcD1234!@#
+    version: 3
+  port: 38725
+  server: 54.46.125.103
+  type: ss
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 27.06MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 443
+  server: ahk1.jueduibupao.top
+  skip-cert-verify: true
+  sni: www.speedtest.net
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 21.88MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 7000
+  server: ahk.jueduibupao.top
+  sni: ahk.jueduibupao.top
+  type: anytls
+  udp: true
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 13.72MB/s"
+  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+  port: 41764
+  ports: 40000-50000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
