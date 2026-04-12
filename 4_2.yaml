@@ -1,8 +1,8 @@
 proxy-providers: {}
 proxies:
 - cipher: 2022-blake3-aes-128-gcm
-  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 27.90MB/s"
-  password: MjY5ZDczM2I3OGYyNmNmYQ==:ZGU0ZTVjZmItNjY3Ni00YQ==
+  name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 50.07MB/s"
+  password: MjY5ZDczM2I3OGYyNmNmYQ==:Yjg4NDk1YjktN2JhOS00MQ==
   plugin: shadow-tls
   plugin-opts:
     host: www.microsoft.com
@@ -12,28 +12,107 @@ proxies:
   server: 54.46.125.103
   type: ss
   udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 27.06MB/s"
-  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+- name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 47.45MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 443
   server: ahk1.jueduibupao.top
   skip-cert-verify: true
   sni: www.speedtest.net
   type: anytls
   udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 21.88MB/s"
-  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
+- name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 26.15MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 7000
+  server: asg2.jueduibupao.top
+  skip-cert-verify: true
+  sni: asg2.jueduibupao.top
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 23.06MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 7000
   server: ahk.jueduibupao.top
   sni: ahk.jueduibupao.top
   type: anytls
   udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 21.18MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 56000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  version: 5
 - down: 200
-  name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 13.72MB/s"
-  password: de4e5cfb-6676-4ab9-901c-cf4fa67016e6
-  port: 41764
+  name: "\U0001F1ED\U0001F1F0 HK 005 | ⬇️ 18.52MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 40132
+  ports: 40000-50000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 006 | ⬇️ 17.55MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 45950
   ports: 40000-50000
   server: hkt2.jueduibupao.top
   skip-cert-verify: true
   sni: hkt1.jueduibupao.top
   type: hysteria2
   up: 100
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 007 | ⬇️ 17.13MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 56000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  version: 5
+- down: 300
+  name: "\U0001F1ED\U0001F1F0 HK 008 | ⬇️ 15.94MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 44885
+  ports: 40000-50000
+  server: hk3.jueduibupao.top
+  skip-cert-verify: true
+  sni: hk3.jueduibupao.top
+  type: hysteria2
+  up: 200
+- name: "\U0001F1E8\U0001F1F3 TW 001 | ⬇️ 15.02MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 443
+  server: tw2.jueduibupao.top
+  sni: tw2.jueduibupao.top
+  type: anytls
+  udp: true
+- down: 300
+  name: "\U0001F1FA\U0001F1F8 US 001 | ⬇️ 10.80MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 50001
+  server: ny.jueduibupao.top
+  skip-cert-verify: true
+  sni: ny.jueduibupao.top
+  type: hysteria2
+  up: 300
+- name: "\U0001F1E8\U0001F1F3 TW 002 | ⬇️ 7.85MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 443
+  server: tw3.jueduibupao.top
+  sni: tw3.jueduibupao.top
+  type: anytls
+  udp: true
