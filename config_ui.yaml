@@ -1,6 +1,6 @@
 proxy-providers:
   all:
-    url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/proxy.yaml"
+    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/proxy.yaml"
     type: http
     interval: 86400
     health-check:
@@ -9,7 +9,7 @@ proxy-providers:
       interval: 300
     proxy: DIRECT
   highspeed:
-    url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/high_speed.yaml"
+    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/high_speed.yaml"
     type: http
     interval: 86400
     health-check:
@@ -18,7 +18,7 @@ proxy-providers:
       interval: 300
     proxy: DIRECT
   32:
-    url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/3_2.yaml"
+    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/3_2.yaml"
     type: http
     interval: 86400
     health-check:
@@ -27,7 +27,7 @@ proxy-providers:
       interval: 300
     proxy: DIRECT
   42:
-    url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/4_2.yaml"
+    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/4_2.yaml"
     type: http
     interval: 10800
     health-check:
@@ -36,7 +36,7 @@ proxy-providers:
       interval: 300
     proxy: DIRECT
   52:
-    url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/5_2.yaml"
+    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/5_2.yaml"
     type: http
     interval: 10800
     health-check:
