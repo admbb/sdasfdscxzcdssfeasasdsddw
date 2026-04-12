@@ -8,15 +8,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: DIRECT
-  highspeed:
-    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/high_speed.yaml"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: DIRECT
   32:
     url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/3_2.yaml"
     type: http
@@ -28,15 +19,6 @@ proxy-providers:
     proxy: DIRECT
   42:
     url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/4_2.yaml"
-    type: http
-    interval: 10800
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: DIRECT
-  52:
-    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/5_2.yaml"
     type: http
     interval: 10800
     health-check:
@@ -128,43 +110,40 @@ proxy-groups:
   - {name: 🤖 AI, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?=.*(Gemini|GPT)).*$", url: http://www.gstatic.com/generate_204}
   - {name: 🤖 Gemini, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?:(?=.*Gemini)(?=.*[新日美])|(?=.*yyss)(?=.*4x)(?=.*[新日美])).*", url: http://www.gstatic.com/generate_204}
   - {name: 📹 YouTube, type: select, proxies: [📀 媒体影院, 🎥 NETFLIX节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
-  - {name: 🍀 Google, type: select, proxies: [♻️ 高速节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
-  - {name: 👨🏿‍💻 GitHub, type: select, proxies: [♻️ 高速节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
+  - {name: 🍀 Google, type: select, proxies: [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
+  - {name: 👨🏿‍💻 GitHub, type: select, proxies: [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
   - {name: 🐬 OneDrive, type: select, proxies: [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
-  - {name: 🪟 Microsoft, type: select, proxies: [♻️ 高速节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点, DIRECT]}
+  - {name: 🪟 Microsoft, type: select, proxies: [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点, DIRECT]}
   - {name: 🎵 TikTok, type: select, proxies: [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点, DIRECT]}
   - {name: 🎶 Spotify, type: select, proxies: [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点, DIRECT]}
   - {name: 📲 Telegram, type: select, proxies: [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
-  - {name: 🎮 Games, type: select, proxies: [♻️ 高速节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
+  - {name: 🎮 Games, type: select, proxies: [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
   - {name: 🎥 NETFLIX, type: select, proxies: [🎥 NETFLIX节点, 🎥 nb_NETFLIX节点, 🎥 yyss_NETFLIX节点, 🎥 zzsj_NETFLIX节点, ♻️ 自动选择, 🌐 手动选择]}
   - {name: 💶 PayPal, type: select, proxies: [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
   - {name: 🐟 漏网之鱼, type: select, proxies: [DIRECT, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
   - {name: 🚫 广告拦截, type: select, proxies: [REJECT, DIRECT, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]}
-  - {name: ♻️ 高速节点, type: url-test, use: [highspeed], tolerance: 30, interval: 300, url: http://www.gstatic.com/generate_204}  
   - {name: 🇭🇰 香港节点, type: select, include-all: true, filter: "^(?=.*(.*yyss.*?香港|.*zzsj.*?香港|.*香港.*?zj|港|HK|(?i)Hong))(?=.*(?!(台|日|韩|新|深|美|家|官网|剩余|流量|套餐|到期|重置))).*$"}
   - {name: 🇯🇵 日本节点, type: select, include-all: true, filter: "^(?=.*(.*yyss.*?日本|.*zzsj.*?日本|.*日本.*?zj|日|JP|(?i)Japan))(?=.*(?!(港|台|韩|新|美|家|官网|剩余|流量|套餐|到期|重置))).*$"}
   - {name: 🇸🇬 狮城节点, type: select, include-all: true, filter: "^(?=.*(.*yyss.*?新加坡|.*zzsj.*?新加坡|.*新加坡.*?zj|新加坡|坡|狮城|SG|Singapore))(?=.*(?!(台|日|韩|深|美|家|官网|剩余|流量|套餐|到期|重置))).*$"}
   - {name: 🇺🇲 美国节点, type: select, include-all: true, filter: "^(?=.*(.*yyss.*?美国|.*zzsj.*?美国|.*美国.*?zj|美|US|(?i)States|America))(?=.*(?!(港|台|韩|新|日|家|官网|剩余|流量|套餐|到期|重置))).*$"}
-  - {name: ♻️ 自动选择, type: url-test, tolerance: 30, interval: 300, proxies: [🚀 自建节点, ✈️ zzsj节点, ✈️ mj节点, ✈️ yyss节点, ✈️ kly节点, ✈️ nb节点], url: http://www.gstatic.com/generate_204}
+  - {name: ♻️ 自动选择, type: url-test, tolerance: 30, interval: 300, proxies: [🚀 自建节点, ✈️ zzsj节点, ✈️ mj节点, ✈️ yyss节点, ✈️ nb节点], url: http://www.gstatic.com/generate_204}
   - {name: ♻️ 香港自动, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美|家|官网|剩余|流量|套餐|到期|重置|.*zj)).)*$", url: http://www.gstatic.com/generate_204}
   - {name: ♻️ 日本自动, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美|家|官网|剩余|流量|套餐|到期|重置|.*zj)).)*$", url: http://www.gstatic.com/generate_204}
   - {name: ♻️ 狮城自动, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(港|台|韩|日|美|家|官网|剩余|流量|套餐|到期|重置)).)*$", url: http://www.gstatic.com/generate_204}
   - {name: ♻️ 美国自动, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新|家|官网|剩余|流量|套餐|到期|重置)).)*$", url: http://www.gstatic.com/generate_204}
   - {name: ♻️ 其他自动, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?!.*(过滤|直连|港|新|日|美|家|官网|剩余|流量|套餐|到期|重置)).*$", url: http://www.gstatic.com/generate_204}
-  - {name: 🔯 故障转移, type: fallback, proxies: [🫧 yyss优质节点, 🫧 nb优质节点, ✈️ zzsj节点, ✈️ kly节点, ✈️ mj节点]}
+  - {name: 🔯 故障转移, type: fallback, proxies: [🫧 yyss优质节点, 🫧 nb优质节点, ✈️ zzsj节点, ✈️ mj节点]}
   - {name: ✈️ zzsj节点, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?=.*zzsj).*$", url: http://www.gstatic.com/generate_204}
   - {name: ✈️ mj节点, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?=.*mj).*$", url: http://www.gstatic.com/generate_204}
   - {name: ✈️ yyss节点, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?=.*yyss).*$", url: http://www.gstatic.com/generate_204}
-  - {name: ✈️ kly节点, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?=.*kly).*$", url: http://www.gstatic.com/generate_204}
   - {name: ✈️ nb节点, type: url-test, include-all: true, tolerance: 30, interval: 300, filter: "^(?=.*nb).*$", url: http://www.gstatic.com/generate_204}
   - {name: 🫧 yyss优质节点, type: url-test, use: [32], tolerance: 30, interval: 300, url: http://www.gstatic.com/generate_204}
   - {name: 🫧 nb优质节点, type: url-test, use: [42], tolerance: 30, interval: 300, url: http://www.gstatic.com/generate_204}
-  - {name: 🫧 kly优质节点, type: url-test, use: [52], tolerance: 30, interval: 300, url: http://www.gstatic.com/generate_204}
-  - {name: 🎥 NETFLIX节点, type: fallback, proxies: [🎥 yyss_NETFLIX节点, 🎥 nb_NETFLIX节点, 🎥 zzsj_NETFLIX节点, ✈️ kly节点, 🌐 手动选择]}
+  - {name: 🎥 NETFLIX节点, type: fallback, proxies: [🎥 yyss_NETFLIX节点, 🎥 nb_NETFLIX节点, 🎥 zzsj_NETFLIX节点, 🌐 手动选择]}
   - {name: 🎥 yyss_NETFLIX节点, type: url-test, tolerance: 30, interval: 300, include-all: true, filter: "^(?=.*(.*yyss.*?新加坡|.*yyss.*?香港|.*yyss.*?美国)).*$", url: http://www.gstatic.com/generate_204}
   - {name: 🎥 zzsj_NETFLIX节点, type: url-test, tolerance: 30, interval: 300, include-all: true, filter: "^(?=.*(.*zzsj.*?NETFLIX|.*zzsj.*?Netflix)).*$", url: http://www.gstatic.com/generate_204}
   - {name: 🎥 nb_NETFLIX节点, type: url-test, tolerance: 30, interval: 300, include-all: true, filter: "^(?=.*(.*nb.*?流媒体|.*zzsj.*?流媒体)).*$", url: http://www.gstatic.com/generate_204}
-  - {name: 📀 媒体影院, type: fallback, proxies: [🫧 nb优质节点,🫧 yyss优质节点,🫧 kly优质节点, ✈️ nb节点, ✈️ yyss节点, ✈️ kly节点, 🚀 自建节点]}
+  - {name: 📀 媒体影院, type: fallback, proxies: [🫧 nb优质节点,🫧 yyss优质节点, ✈️ nb节点, ✈️ yyss节点, 🚀 自建节点]}
   - {name: 🚀 自建节点, type: url-test, proxies: [🇯🇵 日本_vmess_zj, 🇯🇵 日本_vmess_ipv6_zj]}
 
 # 🌍📺🧠🛡️🧪😊💻🎯⛩️🤡
