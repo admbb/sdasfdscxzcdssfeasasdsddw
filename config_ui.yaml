@@ -165,7 +165,7 @@ proxy-groups:
   - {name: 🎥 zzsj_NETFLIX节点, type: url-test, tolerance: 30, interval: 300, include-all: true, filter: "^(?=.*(.*zzsj.*?NETFLIX|.*zzsj.*?Netflix)).*$", url: http://www.gstatic.com/generate_204}
   - {name: 🎥 nb_NETFLIX节点, type: url-test, tolerance: 30, interval: 300, include-all: true, filter: "^(?=.*(.*nb.*?流媒体|.*zzsj.*?流媒体)).*$", url: http://www.gstatic.com/generate_204}
   - {name: 📀 媒体影院, type: fallback, proxies: [🫧 nb优质节点,🫧 yyss优质节点,🫧 kly优质节点, ✈️ nb节点, ✈️ yyss节点, ✈️ kly节点, 🚀 自建节点]}
-  - {name: 🚀 自建节点, type: url-test, proxies: [🇭🇰 香港_vmess_zj, 🇯🇵 日本_vmess_zj, 🇯🇵 日本_vmess_ipv6_zj]}
+  - {name: 🚀 自建节点, type: url-test, proxies: [🇯🇵 日本_vmess_zj, 🇯🇵 日本_vmess_ipv6_zj]}
 
 # 🌍📺🧠🛡️🧪😊💻🎯⛩️🤡
 
