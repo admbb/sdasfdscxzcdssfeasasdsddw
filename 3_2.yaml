@@ -1,2 +1,42 @@
 proxy-providers: {}
-proxies: []
+proxies:
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  name: "\U0001F1EF\U0001F1F5 JP 001 | ⬇️ 24.20MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 14144
+  server: rkzjqb.jpanytls.yydzx.xyz
+  skip-cert-verify: false
+  sni: rkzjqb.jpanytls.yydzx.xyz
+  type: anytls
+  udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E8\U0001F1F3 CN 001 | ⬇️ 20.57MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 13649
+  reduce-rtt: false
+  server: kkyffz.yydzx.xyz
+  sni: kkyffz.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
+- alpn:
+  - h3
+  congestion-controller: bbr
+  disable-sni: false
+  name: "\U0001F1E8\U0001F1F3 CN 002 | ⬇️ 19.47MB/s"
+  password: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  port: 15545
+  reduce-rtt: false
+  server: trn86d.yydzx.xyz
+  sni: trn86d.yydzx.xyz
+  type: tuic
+  udp-relay-mode: native
+  uuid: 4fc1da10-7371-4110-b4dd-978b63bc2ca0
+  version: 5
