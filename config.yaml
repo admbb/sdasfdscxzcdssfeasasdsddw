@@ -56,13 +56,14 @@ keep-alive-interval: 15
 profile:
   store-selected: false
   store-fake-ip: true
+global-ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # 嗅探（fakeip下其实可以不用嗅探）
 sniffer:
   enable: true
   force-dns-mapping: true
   parse-pure-ip: true
-  override-destination: false
+  override-destination: true
   sniff:
     HTTP:
       ports: [80, 8080-8880]
