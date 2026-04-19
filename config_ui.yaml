@@ -120,7 +120,8 @@ dns:
 # 🛠️ 预定义锚点 (公共节点列表，不被解析为真实组)
 # =========================================
 pr: &common_proxies [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]
-pr_direct: &common_proxies_direct [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点, DIRECT]
+pr_direct: &common_proxies_direct [DIRECT, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]
+pr_reject: &common_proxies_reject [REJECT, DIRECT, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]
 proxy-groups:
   # =========================================
   # 📌 1. 核心控制与基础组
@@ -137,11 +138,11 @@ proxy-groups:
 
   - name: 🐟 漏网之鱼
     type: select
-    proxies: [DIRECT, *common_proxies]
+    proxies: *common_proxies_direct
 
   - name: 🚫 广告拦截
     type: select
-    proxies: [REJECT, DIRECT, *common_proxies]
+    proxies: &common_proxies_reject
     
   # =========================================
   # 🤖 2. 应用与网站分流组
@@ -182,11 +183,11 @@ proxy-groups:
 
   - name: 🎵 TikTok
     type: select
-    proxies: *common_proxies_direct
+    proxies: *common_proxies
 
   - name: 🎶 Spotify
     type: select
-    proxies: *common_proxies_direct
+    proxies: *common_proxies
 
   - name: 📲 Telegram
     type: select
@@ -205,7 +206,7 @@ proxy-groups:
   # =========================================
   - name: 📹 YouTube
     type: select
-    proxies: [📀 媒体影院, 🎥 NETFLIX节点, *common_proxies]
+    proxies: [📀 媒体影院, 🎥 NETFLIX节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]
 
   - name: 🎥 NETFLIX
     type: select
