@@ -70,6 +70,15 @@ sniffer:
   skip-domain:
     - "Mijia Cloud"
     - "+.push.apple.com"
+    - 'www.gstatic.com'
+    - '*.gstatic.com'
+    - 'cp.cloudflare.com'
+    # --- 排除系统网络探测与本地设备 ---
+    - 'captive.apple.com' # 苹果网络连通性检测
+    - '*.apple.com'
+    - 'router.asus.com'   # 路由器后台
+    - '*.lan'             # 局域网域名
+    - '*.local'
 
 # 入站
 tun:
