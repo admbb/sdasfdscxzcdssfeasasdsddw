@@ -222,7 +222,7 @@ proxy-groups:
     tolerance: 50
     interval: 300
     include-all: true
-    filter: "(?i)^(?=.*yyss)(?=.*(流媒体|新加坡|香港|美国)).*$"
+    filter: "(?i)^(?=.*yyss)(?=.*(netflix|流媒体|新加坡|香港|美国)).*$"
     url: https://www.netflix.com/favicon.ico
 
   - name: 🎥 zzsj_NETFLIX节点
