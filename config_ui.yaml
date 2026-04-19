@@ -408,7 +408,7 @@ rules:
   - RULE-SET,private_ip,DIRECT,no-resolve
 
   # === 2. 广告与追踪器拦截 (尽早拦截，节省资源) ===
-  - RULE-SET,AWAvenueAds,🚫 广告拦截
+  - RULE-SET,anti_ad_domain,🚫 广告拦截
   - RULE-SET,ads_domain,🚫 广告拦截
   - RULE-SET,trackerslist_domain,DIRECT
   - RULE-SET,reject_rules,🚫 广告拦截
@@ -476,8 +476,7 @@ rule-anchor:
 # =========================================
 rule-providers: 
   # --- 1. 广告拦截与隐私保护 ---
-  AWAvenueAds: {<<: *yaml, url: "https://fastly.jsdelivr.net/gh/TG-Twilight/AWAvenue-Ads-Rule@main/Filters/AWAvenue-Ads-Rule-Clash.yaml"}
-  ads_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs"}
+  anti_ad_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/anti-ad.mrs"}  ads_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs"}
   trackerslist_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/trackerslist.mrs"}
 
   # --- 2. AI 专属服务 ---
