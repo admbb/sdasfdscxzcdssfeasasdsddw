@@ -400,6 +400,69 @@ proxy-groups:
 # yyss.*?美国
 
 # =========================================
+# 🚦 流量分流规则 (从上往下按优先级匹配)
+# =========================================
+rules:
+  # === 1. 局域网与私有网络 (最高优先级，防止内网异常) ===
+  - RULE-SET,private_domain,DIRECT
+  - RULE-SET,private_ip,DIRECT,no-resolve
+
+  # === 2. 广告与追踪器拦截 (尽早拦截，节省资源) ===
+  - RULE-SET,AWAvenueAds,🚫 广告拦截
+  - RULE-SET,ads_domain,🚫 广告拦截
+  - RULE-SET,trackerslist_domain,DIRECT
+  - RULE-SET,reject_rules,🚫 广告拦截
+  
+  # === 3. AI 服务 (对 IP 要求严格，优先匹配) ===
+  - RULE-SET,gemini_domain,🤖 Gemini
+  - RULE-SET,openai_domain,🤖 AI
+  - RULE-SET,ai_domain,🤖 AI
+  - RULE-SET,ai_ip,🤖 AI,no-resolve
+
+  # === 4. 流媒体与社交平台 ===
+  - RULE-SET,youtube_domain,📹 YouTube
+  - RULE-SET,netflix_domain,🎥 NETFLIX
+  - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
+  - RULE-SET,spotify_domain,🎶 Spotify
+  - RULE-SET,tiktok_domain,🎵 TikTok
+  - RULE-SET,telegram_domain,📲 Telegram
+  - RULE-SET,telegram_ip,📲 Telegram,no-resolve
+  - RULE-SET,media_rules,📀 媒体影院
+
+  # === 5. 特定服务与应用 (海外应用) ===
+  - RULE-SET,google_domain,🍀 Google
+  - RULE-SET,google_ip,🍀 Google,no-resolve
+  - RULE-SET,github_domain,👨🏿‍💻 GitHub
+  - RULE-SET,onedrive_domain,🐬 OneDrive
+  - RULE-SET,microsoft_domain,🪟 Microsoft
+  - RULE-SET,paypal_domain,💶 PayPal
+  - RULE-SET,apple_domain,DIRECT
+  - RULE-SET,apple_ip,DIRECT,no-resolve
+  - RULE-SET,accept_rules,🍀 Google
+
+  # === 6. 游戏服务 (直连优先，代理兜底) ===
+  - RULE-SET,steamcn_domain,DIRECT
+  - RULE-SET,games_direct_domain,DIRECT
+  - RULE-SET,games_proxy_domain,🔯 故障转移
+  - RULE-SET,steam_domain,🎮 Games
+  - RULE-SET,epic_domain,🎮 Games
+  - RULE-SET,origin_domain,🎮 Games
+  - RULE-SET,ea_domain,🎮 Games
+  - RULE-SET,playstation_domain,🎮 Games
+  - RULE-SET,xbox_domain,🎮 Games
+  - RULE-SET,nintendo_domain,🎮 Games  
+
+  # === 7. 兜底与大范围代理 (通用规则) ===
+  - RULE-SET,proxy_domain,🔯 故障转移
+
+  # === 8. 中国大陆流量 (国内直连) ===
+  - RULE-SET,cn_domain,DIRECT
+  - RULE-SET,cn_ip,DIRECT,no-resolve
+
+  # === 9. 最终匹配 (漏网之鱼) ===
+  - MATCH,🐟 漏网之鱼
+  
+# =========================================
 # 🛠️ 规则集锚点定义 (基础配置)
 # =========================================
 rule-anchor:
@@ -463,71 +526,6 @@ rule-providers:
   cn_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs"}
 
   # --- 7. 个人 ---
-  media_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/media_rules.list"}
-  accept_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/accept_rules.list"}
-  reject_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/reject_rules.list"}
-
-
-
-# =========================================
-# 🚦 流量分流规则 (从上往下按优先级匹配)
-# =========================================
-rules:
-  # === 1. 局域网与私有网络 (最高优先级，防止内网异常) ===
-  - RULE-SET,private_domain,DIRECT
-  - RULE-SET,private_ip,DIRECT,no-resolve
-
-  # === 2. 广告与追踪器拦截 (尽早拦截，节省资源) ===
-  - RULE-SET,AWAvenueAds,🚫 广告拦截
-  - RULE-SET,ads_domain,🚫 广告拦截
-  - RULE-SET,trackerslist_domain,DIRECT
-  - RULE-SET,reject_rules,🚫 广告拦截
-  
-  # === 3. AI 服务 (对 IP 要求严格，优先匹配) ===
-  - RULE-SET,gemini_domain,🤖 Gemini
-  - RULE-SET,openai_domain,🤖 AI
-  - RULE-SET,ai_domain,🤖 AI
-  - RULE-SET,ai_ip,🤖 AI,no-resolve
-
-  # === 4. 流媒体与社交平台 ===
-  - RULE-SET,youtube_domain,📹 YouTube
-  - RULE-SET,netflix_domain,🎥 NETFLIX
-  - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
-  - RULE-SET,spotify_domain,🎶 Spotify
-  - RULE-SET,tiktok_domain,🎵 TikTok
-  - RULE-SET,telegram_domain,📲 Telegram
-  - RULE-SET,telegram_ip,📲 Telegram,no-resolve
-  - RULE-SET,media_rules,📀 媒体影院
-
-  # === 5. 特定服务与应用 (海外应用) ===
-  - RULE-SET,google_domain,🍀 Google
-  - RULE-SET,google_ip,🍀 Google,no-resolve
-  - RULE-SET,github_domain,👨🏿‍💻 GitHub
-  - RULE-SET,onedrive_domain,🐬 OneDrive
-  - RULE-SET,microsoft_domain,🪟 Microsoft
-  - RULE-SET,paypal_domain,💶 PayPal
-  - RULE-SET,apple_domain,DIRECT
-  - RULE-SET,apple_ip,DIRECT,no-resolve
-  - RULE-SET,accept_rules,🍀 Google
-
-  # === 6. 游戏服务 (直连优先，代理兜底) ===
-  - RULE-SET,steamcn_domain,DIRECT
-  - RULE-SET,games_direct_domain,DIRECT
-  - RULE-SET,games_proxy_domain,🔯 故障转移
-  - RULE-SET,steam_domain,🎮 Games
-  - RULE-SET,epic_domain,🎮 Games
-  - RULE-SET,origin_domain,🎮 Games
-  - RULE-SET,ea_domain,🎮 Games
-  - RULE-SET,playstation_domain,🎮 Games
-  - RULE-SET,xbox_domain,🎮 Games
-  - RULE-SET,nintendo_domain,🎮 Games  
-
-  # === 7. 兜底与大范围代理 (通用规则) ===
-  - RULE-SET,proxy_domain,🔯 故障转移
-
-  # === 8. 中国大陆流量 (国内直连) ===
-  - RULE-SET,cn_domain,DIRECT
-  - RULE-SET,cn_ip,DIRECT,no-resolve
-
-  # === 9. 最终匹配 (漏网之鱼) ===
-  - MATCH,🐟 漏网之鱼
+  media_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/media_rules.list"}
+  accept_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/accept_rules.list"}
+  reject_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/reject_rules.list"}
