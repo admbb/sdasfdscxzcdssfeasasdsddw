@@ -56,6 +56,9 @@ external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-p
 # 嗅探（fakeip下其实可以不用嗅探）
 sniffer:
   enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
   sniff:
     HTTP:
       ports: [80, 8080-8880]
@@ -150,35 +153,42 @@ proxy-groups:
 
 # 规则匹配
 rules:
+  # === 1. 局域网与私有网络 (最高优先级，防止内网异常) ===
+  - RULE-SET,private_domain,DIRECT
+  - RULE-SET,private_ip,DIRECT,no-resolve
+
+  # === 2. 广告与追踪器拦截 (尽早拦截，节省资源) ===
   - RULE-SET,AWAvenueAds,🚫 广告拦截
   - RULE-SET,reject_rules,🚫 广告拦截
-
-  - RULE-SET,media_rules,📀 媒体影院
-
-  - RULE-SET,private_ip,DIRECT,no-resolve
-  - RULE-SET,private_domain,DIRECT
   - RULE-SET,trackerslist_domain,DIRECT
+  
+  # === 3. AI 服务 (对 IP 要求严格，优先匹配) ===
   - RULE-SET,Gemini_domain,🤖 Gemini
   - RULE-SET,OpenAI_domain,🤖 AI
   - RULE-SET,ai,🤖 AI
-  - RULE-SET,ai_ip,🤖 AI
-  - RULE-SET,proxylite,🔯 故障转移
-  - RULE-SET,accept_rules,🔯 故障转移
-  - RULE-SET,github_domain,👨🏿‍💻 GitHub
+  - RULE-SET,ai_ip,🤖 AI,no-resolve
+
+  # === 4. 流媒体与社交平台 ===
   - RULE-SET,youtube_domain,📹 YouTube
-  - RULE-SET,google_domain,🍀 Google
-  - RULE-SET,onedrive_domain,🐬 OneDrive
-  - RULE-SET,microsoft_domain,🪟 Microsoft
-  - RULE-SET,apple_domain,DIRECT
+  - RULE-SET,netflix_domain,🎥 NETFLIX
+  - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
+  - RULE-SET,Spotify_domain,🎶 Spotify
   - RULE-SET,tiktok_domain,🎵 TikTok
   - RULE-SET,telegram_domain,📲 Telegram
-  - RULE-SET,netflix_domain,🎥 NETFLIX
+  - RULE-SET,telegram_ip,📲 Telegram,no-resolve
+  - RULE-SET,media_rules,📀 媒体影院
+
+  # === 5. 特定服务与应用 (海外应用) ===
+  - RULE-SET,google_domain,🍀 Google
+  - RULE-SET,google_ip,🍀 Google,no-resolve
+  - RULE-SET,github_domain,👨🏿‍💻 GitHub
+  - RULE-SET,onedrive_domain,🐬 OneDrive
+  - RULE-SET,microsoft_domain,🪟 Microsoft
   - RULE-SET,paypal_domain,💶 PayPal
-  - RULE-SET,apple_ip,DIRECT
-  - RULE-SET,google_ip,🍀 Google
-  - RULE-SET,netflix_ip,🎥 NETFLIX
-  - RULE-SET,Spotify_domain,🎶 Spotify
-  - RULE-SET,telegram_ip,📲 Telegram
+  - RULE-SET,apple_domain,DIRECT
+  - RULE-SET,apple_ip,DIRECT,no-resolve
+
+  # === 6. 游戏服务 (直连优先，代理兜底) ===
   - RULE-SET,SteamCN,DIRECT
   - RULE-SET,GameDownloadCN,DIRECT
   - RULE-SET,GameDownload,🔯 故障转移
@@ -190,9 +200,17 @@ rules:
   - RULE-SET,Xbox_domain,🎮 Games
   - RULE-SET,Nintend_domain,🎮 Games
   - RULE-SET,Game_domain,🎮 Games
+
+  # === 7. 兜底与大范围代理 (通用规则) ===
+  - RULE-SET,proxylite,🔯 故障转移
+  - RULE-SET,accept_rules,🔯 故障转移
   - RULE-SET,geolocation-!cn,🔯 故障转移
+
+  # === 8. 中国大陆流量 (国内直连) ===
   - RULE-SET,cn_domain,DIRECT
-  - RULE-SET,cn_ip,DIRECT
+  - RULE-SET,cn_ip,DIRECT,no-resolve
+
+  # === 9. 最终匹配 (漏网之鱼) ===
   - MATCH,🐟 漏网之鱼
 
 # 规则集
