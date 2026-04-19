@@ -142,7 +142,7 @@ proxy-groups:
 
   - name: 🚫 广告拦截
     type: select
-    proxies: &common_proxies_reject
+    proxies: *common_proxies_reject
     
   # =========================================
   # 🤖 2. 应用与网站分流组
