@@ -40,8 +40,6 @@ proxy-providers:
 proxies:
   - {name: 🇯🇵 日本_vmess_ipv6_zj, server: natjp5-2.bytevirt.net, port: 32515, type: vmess, uuid: 081dbf5a-d8b6-40c8-96f8-3c4ca9f50442, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, tfo: false}
   - {name: 🇯🇵 日本_vmess_zj, server: 147.79.20.181, port: 32519, type: vmess, uuid: d60e5f2f-c007-42e3-bd99-e9e2f804f9bc, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: www.apple.com, tfo: false}
-  - {name: 🇭🇰 香港_vmess_zj, server: 199.48.247.102, port: 50786, type: vmess, uuid: 0b008676-4efc-471d-be73-7e11b076ccf5, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: www.apple.com, tfo: false}
-
 # 全局配置 
 mixed-port: 7890
 allow-lan: true
@@ -56,6 +54,13 @@ keep-alive-interval: 15
 profile:
   store-selected: false
   store-fake-ip: true
+
+# 为防止使用插件朋友遇到面板问题，我注释掉了此模块。
+external-controller: 0.0.0.0:9090
+secret: "88888888"
+external-ui: ui
+external-ui-name: zashboard
+external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
 # 嗅探（fakeip下其实可以不用嗅探）
 sniffer:
