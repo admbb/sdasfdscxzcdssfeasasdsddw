@@ -481,6 +481,7 @@ rules:
   - RULE-SET,AWAvenueAds,🚫 广告拦截
   - RULE-SET,ads_domain,🚫 广告拦截
   - RULE-SET,trackerslist_domain,DIRECT
+  - RULE-SET,reject_rules,🚫 广告拦截
   
   # === 3. AI 服务 (对 IP 要求严格，优先匹配) ===
   - RULE-SET,gemini_domain,🤖 Gemini
@@ -507,6 +508,7 @@ rules:
   - RULE-SET,paypal_domain,💶 PayPal
   - RULE-SET,apple_domain,DIRECT
   - RULE-SET,apple_ip,DIRECT,no-resolve
+  - RULE-SET,accept_rules,🍀 Google
 
   # === 6. 游戏服务 (直连优先，代理兜底) ===
   - RULE-SET,steamcn_domain,DIRECT
@@ -518,7 +520,7 @@ rules:
   - RULE-SET,ea_domain,🎮 Games
   - RULE-SET,playstation_domain,🎮 Games
   - RULE-SET,xbox_domain,🎮 Games
-  - RULE-SET,nintendo_domain,🎮 Games
+  - RULE-SET,nintendo_domain,🎮 Games  
 
   # === 7. 兜底与大范围代理 (通用规则) ===
   - RULE-SET,proxy_domain,🔯 故障转移
