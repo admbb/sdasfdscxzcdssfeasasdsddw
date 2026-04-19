@@ -399,7 +399,79 @@ proxy-groups:
 # 🌍📺🧠🛡️🧪😊💻🎯⛩️🤡
 # yyss.*?美国
 
-# 规则匹配
+# =========================================
+# 🛠️ 规则集锚点定义 (基础配置)
+# =========================================
+rule-anchor:
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
+  class: &class {type: http, interval: 86400, behavior: classical, format: text}
+  yaml: &yaml {type: http, interval: 86400, behavior: classical, format: yaml}
+
+# =========================================
+# 📦 规则提供商 (核心资源池)
+# =========================================
+rule-providers: 
+  # --- 1. 广告拦截与隐私保护 ---
+  AWAvenueAds: {<<: *yaml, url: "https://fastly.jsdelivr.net/gh/TG-Twilight/AWAvenue-Ads-Rule@main/Filters/AWAvenue-Ads-Rule-Clash.yaml"}
+  ads_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs"}
+  trackerslist_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/trackerslist.mrs"}
+
+  # --- 2. AI 专属服务 ---
+  openai_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.mrs"}
+  gemini_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google-gemini.mrs"}
+  ai_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs"}
+  ai_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/AI.mrs"}
+
+  # --- 3. 流媒体服务 ---
+  youtube_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs"}
+  netflix_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs"}
+  netflix_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs"}
+  spotify_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs"}
+  tiktok_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs"}
+
+  # --- 4. 游戏与平台 (主机/PC) ---
+  steam_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs"}
+  epic_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/epicgames.mrs"}
+  ea_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/ea.mrs"}
+  origin_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/origin.mrs"}
+  xbox_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/xbox.mrs"}
+  playstation_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/playstation.mrs"}
+  nintendo_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nintendo.mrs"}
+  games_proxy_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs"}
+  steamcn_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam@cn.mrs"}
+  games_direct_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs"}
+
+  # --- 5. 国际核心应用 & 兜底代理 ---
+  google_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs"}
+  google_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs"}
+  github_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs"}
+  telegram_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs"}
+  telegram_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs"}
+  paypal_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.mrs"}
+  microsoft_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs"}
+  onedrive_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs"}
+  apple_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs"}
+  apple_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/apple.mrs"}
+  proxy_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs"}
+
+  # --- 6. 国内直连 & 局域网 ---
+  fakeipfilter_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/fakeip-filter.mrs"}
+  private_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs"}
+  private_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs"}
+  cn_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs"}
+  cn_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs"}
+
+  # --- 7. 个人 ---
+  media_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/media_rules.list"}
+  accept_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/accept_rules.list"}
+  reject_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/reject_rules.list"}
+
+
+
+# =========================================
+# 🚦 流量分流规则 (从上往下按优先级匹配)
+# =========================================
 rules:
   # === 1. 局域网与私有网络 (最高优先级，防止内网异常) ===
   - RULE-SET,private_domain,DIRECT
@@ -407,20 +479,20 @@ rules:
 
   # === 2. 广告与追踪器拦截 (尽早拦截，节省资源) ===
   - RULE-SET,AWAvenueAds,🚫 广告拦截
-  - RULE-SET,reject_rules,🚫 广告拦截
+  - RULE-SET,ads_domain,🚫 广告拦截
   - RULE-SET,trackerslist_domain,DIRECT
   
   # === 3. AI 服务 (对 IP 要求严格，优先匹配) ===
-  - RULE-SET,Gemini_domain,🤖 Gemini
-  - RULE-SET,OpenAI_domain,🤖 AI
-  - RULE-SET,ai,🤖 AI
+  - RULE-SET,gemini_domain,🤖 Gemini
+  - RULE-SET,openai_domain,🤖 AI
+  - RULE-SET,ai_domain,🤖 AI
   - RULE-SET,ai_ip,🤖 AI,no-resolve
 
   # === 4. 流媒体与社交平台 ===
   - RULE-SET,youtube_domain,📹 YouTube
   - RULE-SET,netflix_domain,🎥 NETFLIX
   - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
-  - RULE-SET,Spotify_domain,🎶 Spotify
+  - RULE-SET,spotify_domain,🎶 Spotify
   - RULE-SET,tiktok_domain,🎵 TikTok
   - RULE-SET,telegram_domain,📲 Telegram
   - RULE-SET,telegram_ip,📲 Telegram,no-resolve
@@ -437,22 +509,19 @@ rules:
   - RULE-SET,apple_ip,DIRECT,no-resolve
 
   # === 6. 游戏服务 (直连优先，代理兜底) ===
-  - RULE-SET,SteamCN,DIRECT
-  - RULE-SET,GameDownloadCN,DIRECT
-  - RULE-SET,GameDownload,🔯 故障转移
-  - RULE-SET,Steam_domain,🎮 Games
-  - RULE-SET,Epic_domain,🎮 Games
-  - RULE-SET,Origin_domain,🎮 Games
-  - RULE-SET,EA_domain,🎮 Games
-  - RULE-SET,PlayStation_domain,🎮 Games
-  - RULE-SET,Xbox_domain,🎮 Games
-  - RULE-SET,Nintend_domain,🎮 Games
-  - RULE-SET,Game_domain,🎮 Games
+  - RULE-SET,steamcn_domain,DIRECT
+  - RULE-SET,games_direct_domain,DIRECT
+  - RULE-SET,games_proxy_domain,🔯 故障转移
+  - RULE-SET,steam_domain,🎮 Games
+  - RULE-SET,epic_domain,🎮 Games
+  - RULE-SET,origin_domain,🎮 Games
+  - RULE-SET,ea_domain,🎮 Games
+  - RULE-SET,playstation_domain,🎮 Games
+  - RULE-SET,xbox_domain,🎮 Games
+  - RULE-SET,nintendo_domain,🎮 Games
 
   # === 7. 兜底与大范围代理 (通用规则) ===
-  - RULE-SET,proxylite,🔯 故障转移
-  - RULE-SET,accept_rules,🔯 故障转移
-  - RULE-SET,geolocation-!cn,🔯 故障转移
+  - RULE-SET,proxy_domain,🔯 故障转移
 
   # === 8. 中国大陆流量 (国内直连) ===
   - RULE-SET,cn_domain,DIRECT
@@ -460,56 +529,3 @@ rules:
 
   # === 9. 最终匹配 (漏网之鱼) ===
   - MATCH,🐟 漏网之鱼
-
-# 规则集
-## type：可选http/file/inline  behavior：可选domain/ipcidr/classical format：可选yaml/text/mrs
-rule-anchor:
-  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
-  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
-  class: &class {type: http, interval: 86400, behavior: classical, format: text}
-  yaml: &yaml {type: http, behavior: domain, format: yaml, interval: 86400}
-rule-providers: 
-  fakeipfilter_domain: {<<: *domain, url: "https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/fakeip-filter.mrs"}
-  private_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
-  proxylite: { <<: *class, url: "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/proxy.list"}
-  reject_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/reject_rules.list"}
-  accept_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/accept_rules.list"}
-  media_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sub_easdasfasfsaacs/refs/heads/main/media_rules.list"}
-  ai: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
-  youtube_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
-  google_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
-  github_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
-  telegram_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
-  netflix_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"}
-  paypal_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/paypal.mrs"}
-  onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"}
-  microsoft_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
-  apple_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
-  tiktok_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
-  geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
-  cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
-  trackerslist_domain: { <<: *domain, url: "https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/mihomo-ruleset/trackerslist.mrs"}
-  Gemini_domain: { <<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google-gemini.mrs"}
-  OpenAI_domain: { <<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.mrs"}
-  Steam_domain: { <<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/steam.mrs"}
-  Epic_domain: { <<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.list"}
-  EA_domain: { <<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.list"}
-  Spotify_domain: { <<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/spotify.mrs"}
-  PlayStation_domain: { <<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/PlayStation/PlayStation.list"}
-  Nintend_domain: { <<: *class, url: "https://gh-proxy.com/raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo.list"}
-  Origin_domain: { <<: *yaml, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Origin/Origin_No_Resolve.yaml"}
-  Xbox_domain: { <<: *yaml, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Xbox/Xbox_No_Resolve.yaml"}
-  Game_domain: { <<: *yaml, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml"}
-  
-  ai_ip: {<<: *ip, url: "https://github.com/666OS/rules/raw/release/mihomo/ip/AI.mrs"}
-  private_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs"}
-  cn_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
-  google_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
-  telegram_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
-  netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
-  apple_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
-
-  AWAvenueAds: {<<: *yaml, url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"}
-  SteamCN: {<<: *yaml, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN_No_Resolve.yaml"}
-  GameDownloadCN: {<<: *yaml, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN_No_Resolve.yaml"}
-  GameDownload: {<<: *yaml, url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownload/GameDownload_No_Resolve.yaml"}
