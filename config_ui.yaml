@@ -476,7 +476,7 @@ rule-anchor:
 # =========================================
 rule-providers: 
   # --- 1. 广告拦截与隐私保护 ---
-  anti_ad_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/anti-ad.mrs"}
+  anti_ad_domain: {<<: *domain, url: "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomo.mrs"}
   ads_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs"}
   trackerslist_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/trackerslist.mrs"}
 
