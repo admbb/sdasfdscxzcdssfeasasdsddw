@@ -1,20 +1,13 @@
 proxy-providers: {}
 proxies:
-- name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 76.26MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 74.30MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 7000
   server: ahk.jueduibupao.top
   sni: ahk.jueduibupao.top
   type: anytls
   udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 73.92MB/s"
-  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55001
-  server: dafeizhu.xxxyun.top
-  sni: atlhk1.jueduibupao.top
-  type: anytls
-  udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 73.58MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 71.64MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 443
   server: ahk1.jueduibupao.top
@@ -22,15 +15,8 @@ proxies:
   sni: www.speedtest.net
   type: anytls
   udp: true
-- name: "\U0001F1EF\U0001F1F5 JP 001 | ⬇️ 69.34MB/s"
-  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 443
-  server: ajp.jueduibupao.top
-  sni: ajp.jueduibupao.top
-  type: anytls
-  udp: true
 - cipher: 2022-blake3-aes-128-gcm
-  name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 63.58MB/s"
+  name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 67.53MB/s"
   password: MjY5ZDczM2I3OGYyNmNmYQ==:Yjg4NDk1YjktN2JhOS00MQ==
   plugin: shadow-tls
   plugin-opts:
@@ -41,7 +27,21 @@ proxies:
   server: 54.46.125.103
   type: ss
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 49.33MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 65.96MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55003
+  server: dafeizhu.xxxyun.top
+  sni: atlsg1.jueduibupao.top
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 46.26MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55003
+  server: xiaofeizhu.xxxyun.top
+  sni: atlsg1.jueduibupao.top
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 002 | ⬇️ 45.75MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 7000
   server: asg2.jueduibupao.top
@@ -49,105 +49,196 @@ proxies:
   sni: asg2.jueduibupao.top
   type: anytls
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 002 | ⬇️ 47.55MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 005 | ⬇️ 43.07MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55102
+  server: dafeizhu.xxxyun.top
+  sni: atlhk2.zhuzhuzhu886.top
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 003 | ⬇️ 40.56MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 443
   server: asg.jueduibupao.top
   sni: asg.jueduibupao.top
   type: anytls
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 003 | ⬇️ 43.23MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 006 | ⬇️ 34.93MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55003
-  server: xiaofeizhu.xxxyun.top
-  sni: atlsg1.jueduibupao.top
-  type: anytls
-  udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 005 | ⬇️ 41.11MB/s"
-  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55102
+  port: 55001
   server: dafeizhu.xxxyun.top
-  sni: atlhk2.zhuzhuzhu886.top
+  skip-cert-verify: true
+  sni: www.lamer.com.hk
   type: anytls
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 004 | ⬇️ 34.62MB/s"
-  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55004
-  server: xiaofeizhu.xxxyun.top
-  sni: atljp1.jueduibupao.top
-  type: anytls
-  udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 006 | ⬇️ 31.92MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 007 | ⬇️ 33.16MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 55005
   server: dafeizhu.xxxyun.top
   sni: tw2.jueduibupao.top
   type: anytls
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 005 | ⬇️ 29.27MB/s"
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 008 | ⬇️ 31.66MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55001
-  server: xiaofeizhu.xxxyun.top
-  sni: atlhk1.jueduibupao.top
-  type: anytls
+  port: 56000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 006 | ⬇️ 23.15MB/s"
+  udp-relay-mode: native
+  uuid: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  version: 5
+- alterId: 0
+  cipher: auto
+  client-fingerprint: chrome
+  encryption: none
+  name: "\U0001F1EF\U0001F1F5 JP 001 | ⬇️ 31.30MB/s"
+  network: tcp
+  port: 57000
+  server: test.xxxyun.top
+  servername: www.microsoft.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+- down: 300
+  name: "\U0001F1EF\U0001F1F5 JP 002 | ⬇️ 25.71MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 50001
+  server: linjp1.jueduibupao.top
+  skip-cert-verify: false
+  sni: linjp1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 009 | ⬇️ 22.87MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 56000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  version: 5
+- name: "\U0001F1F8\U0001F1EC SG 004 | ⬇️ 22.63MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 55102
   server: xiaofeizhu.xxxyun.top
   sni: atlhk2.zhuzhuzhu886.top
   type: anytls
   udp: true
-- name: "\U0001F1FA\U0001F1F8 US 001 | ⬇️ 20.09MB/s"
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 010 | ⬇️ 22.39MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 44594
+  ports: 40000-50000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- down: 200
+  name: "\U0001F1E8\U0001F1F3 TW 001 | ⬇️ 21.88MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 30078
+  server: tw2.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw2.jueduibupao.top
+  type: hysteria2
+  up: 200
+- down: 200
+  name: "\U0001F1E8\U0001F1F3 TW 002 | ⬇️ 21.84MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 46017
+  ports: 40000-50000
+  server: tw3.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw3.jueduibupao.top
+  type: hysteria2
+  up: 200
+- down: 300
+  name: "\U0001F1FA\U0001F1F8 US 001 | ⬇️ 20.48MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 50001
+  server: ny.jueduibupao.top
+  skip-cert-verify: true
+  sni: ny.jueduibupao.top
+  type: hysteria2
+  up: 300
+- name: "\U0001F1F8\U0001F1EC SG 005 | ⬇️ 20.23MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 52099
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.lamer.com.hk
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 006 | ⬇️ 19.50MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55006
+  server: xiaofeizhu.xxxyun.top
+  sni: tw3.jueduibupao.top
+  type: anytls
+  udp: true
+- name: "\U0001F1FA\U0001F1F8 US 002 | ⬇️ 19.23MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 9527
   server: aus.jueduibupao.top
   sni: aus.jueduibupao.top
   type: anytls
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 007 | ⬇️ 15.34MB/s"
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 011 | ⬇️ 18.02MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 48910
+  ports: 40000-50000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- name: "\U0001F1F8\U0001F1EC SG 007 | ⬇️ 15.35MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55001
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.lamer.com.hk
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 008 | ⬇️ 13.21MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 55005
   server: xiaofeizhu.xxxyun.top
   sni: tw2.jueduibupao.top
   type: anytls
   udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 007 | ⬇️ 10.85MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 012 | ⬇️ 8.06MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55003
+  port: 55010
   server: dafeizhu.xxxyun.top
-  sni: atlsg1.jueduibupao.top
+  sni: atluk.jueduibupao.top
   type: anytls
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 008 | ⬇️ 10.24MB/s"
+- name: "\U0001F1F8\U0001F1EC SG 009 | ⬇️ 6.26MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 55007
   server: xiaofeizhu.xxxyun.top
   sni: atlus1.jueduibupao.top
   type: anytls
   udp: true
-- alterId: 0
-  cipher: auto
-  client-fingerprint: chrome
-  encryption: none
-  name: "\U0001F1E8\U0001F1E6 CA 001 | ⬇️ 8.87MB/s"
-  network: ws
-  port: 443
-  server: haha.xxxyun.top
-  servername: nbjp1.nbfast.top
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  udp: true
-  uuid: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  ws-opts:
-    headers:
-      Host: nbjp1.nbfast.top
-    path: /udhs/6b
-- name: "\U0001F1F8\U0001F1EC SG 009 | ⬇️ 5.43MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 013 | ⬇️ 6.24MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55010
-  server: xiaofeizhu.xxxyun.top
-  sni: atluk.jueduibupao.top
+  port: 55004
+  server: dafeizhu.xxxyun.top
+  sni: atljp1.jueduibupao.top
   type: anytls
   udp: true
