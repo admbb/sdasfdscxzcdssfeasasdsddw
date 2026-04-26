@@ -1,2 +1,82 @@
 proxy-providers: {}
-proxies: []
+proxies:
+- name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 36.83MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 443
+  server: ahk1.jueduibupao.top
+  skip-cert-verify: true
+  sni: www.speedtest.net
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 25.40MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 7000
+  server: ahk.jueduibupao.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 21.56MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 7000
+  server: asg2.jueduibupao.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 002 | ⬇️ 18.27MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 443
+  server: asg.jueduibupao.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1FA\U0001F1F8 US 001 | ⬇️ 12.56MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 9527
+  server: aus.jueduibupao.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 003 | ⬇️ 10.49MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55102
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 004 | ⬇️ 7.46MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55001
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 005 | ⬇️ 6.43MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55004
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 5.93MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55004
+  server: dafeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 5.03MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55001
+  server: dafeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: download.windowsupdate.com
+  type: anytls
+  udp: true
