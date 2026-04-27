@@ -154,6 +154,11 @@ proxy-groups:
     url: https://chatgpt.com/favicon.ico
 
   - name: 🤖 Gemini
+    type: fallback
+    lazy: true
+    proxies: [😊 Gemini节点, 🤖 AI]
+
+  - name: 😊 Gemini节点
     type: url-test
     lazy: true
     include-all: true
