@@ -159,7 +159,7 @@ proxy-groups:
     include-all: true
     tolerance: 50
     interval: 300
-    filter: "^(?:(?=.*Gemini)(?=.*[新日美])|(?=.*yyss)(?=.*[新日美])).*|(?i)(AI|Gemini|GPT|Claude)"
+    filter: "^(?:(?=.*Gemini)(?=.*[新日美])|(?=.*yyss)(?=.*[新日美])).*|(?i)(.*(AI|Gemini|GPT|Claude).*[新日美])|(.*[新日美].*(AI|Gemini|GPT|Claude))"
     url: https://gemini.google.com/favicon.ico
 
   - name: 🍀 Google
