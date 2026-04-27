@@ -1,6 +1,6 @@
 proxy-providers: {}
 proxies:
-- name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 36.83MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 001 | ⬇️ 76.99MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 443
   server: ahk1.jueduibupao.top
@@ -8,7 +8,7 @@ proxies:
   sni: www.speedtest.net
   type: anytls
   udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 25.40MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 002 | ⬇️ 76.38MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 7000
   server: ahk.jueduibupao.top
@@ -16,15 +16,7 @@ proxies:
   sni: www.microsoft.com
   type: anytls
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 21.56MB/s"
-  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 7000
-  server: asg2.jueduibupao.top
-  skip-cert-verify: true
-  sni: www.microsoft.com
-  type: anytls
-  udp: true
-- name: "\U0001F1F8\U0001F1EC SG 002 | ⬇️ 18.27MB/s"
+- name: "\U0001F1F8\U0001F1EC SG 001 | ⬇️ 50.87MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 443
   server: asg.jueduibupao.top
@@ -32,7 +24,149 @@ proxies:
   sni: www.microsoft.com
   type: anytls
   udp: true
-- name: "\U0001F1FA\U0001F1F8 US 001 | ⬇️ 12.56MB/s"
+- name: "\U0001F1F8\U0001F1EC SG 002 | ⬇️ 49.00MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 7000
+  server: asg2.jueduibupao.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 47.24MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55001
+  server: dafeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: download.windowsupdate.com
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 44.88MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55004
+  server: dafeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 003 | ⬇️ 36.58MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55003
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 005 | ⬇️ 33.39MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 56000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  version: 5
+- name: "\U0001F1ED\U0001F1F0 HK 006 | ⬇️ 32.32MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55005
+  server: dafeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 004 | ⬇️ 28.93MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55004
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: "\U0001F1ED\U0001F1F0 HK 007 | ⬇️ 27.58MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 56000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: tuic
+  udp: true
+  udp-relay-mode: native
+  uuid: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  version: 5
+- down: 300
+  name: "\U0001F1EF\U0001F1F5 JP 001 | ⬇️ 26.71MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 50001
+  server: linjp1.jueduibupao.top
+  skip-cert-verify: false
+  sni: linjp1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- down: 300
+  name: "\U0001F1F7\U0001F1FA RU 001 | ⬇️ 25.61MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 45935
+  ports: 40000-50000
+  server: de1.jueduibupao.top
+  skip-cert-verify: true
+  sni: de1.jueduibupao.top
+  type: hysteria2
+  up: 300
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 008 | ⬇️ 22.97MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 41790
+  ports: 40000-50000
+  server: hkt2.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- down: 200
+  name: "\U0001F1ED\U0001F1F0 HK 009 | ⬇️ 22.51MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 49726
+  ports: 40000-50000
+  server: hkt1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hkt1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- name: "\U0001F1ED\U0001F1F0 HK 010 | ⬇️ 22.50MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55006
+  server: dafeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- down: 200
+  name: "\U0001F1E8\U0001F1F3 TW 001 | ⬇️ 22.37MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 46399
+  ports: 40000-50000
+  server: tw3.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw3.jueduibupao.top
+  type: hysteria2
+  up: 200
+- down: 200
+  name: "\U0001F1E8\U0001F1F3 TW 002 | ⬇️ 22.05MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 30078
+  server: tw2.jueduibupao.top
+  skip-cert-verify: true
+  sni: tw2.jueduibupao.top
+  type: hysteria2
+  up: 200
+- name: "\U0001F1FA\U0001F1F8 US 001 | ⬇️ 20.55MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 9527
   server: aus.jueduibupao.top
@@ -40,7 +174,23 @@ proxies:
   sni: www.microsoft.com
   type: anytls
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 003 | ⬇️ 10.49MB/s"
+- name: "\U0001F1F8\U0001F1EC SG 005 | ⬇️ 19.40MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 52099
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 006 | ⬇️ 18.88MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55001
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 007 | ⬇️ 18.06MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
   port: 55102
   server: xiaofeizhu.xxxyun.top
@@ -48,35 +198,101 @@ proxies:
   sni: www.microsoft.com
   type: anytls
   udp: true
-- name: "\U0001F1F8\U0001F1EC SG 004 | ⬇️ 7.46MB/s"
+- name: "\U0001F1ED\U0001F1F0 HK 011 | ⬇️ 17.97MB/s"
   password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55001
-  server: xiaofeizhu.xxxyun.top
-  skip-cert-verify: true
-  sni: www.microsoft.com
-  type: anytls
-  udp: true
-- name: "\U0001F1F8\U0001F1EC SG 005 | ⬇️ 6.43MB/s"
-  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55004
-  server: xiaofeizhu.xxxyun.top
-  skip-cert-verify: true
-  sni: www.microsoft.com
-  type: anytls
-  udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 003 | ⬇️ 5.93MB/s"
-  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55004
-  server: dafeizhu.xxxyun.top
-  skip-cert-verify: true
-  sni: www.microsoft.com
-  type: anytls
-  udp: true
-- name: "\U0001F1ED\U0001F1F0 HK 004 | ⬇️ 5.03MB/s"
-  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
-  port: 55001
+  port: 55102
   server: dafeizhu.xxxyun.top
   skip-cert-verify: true
   sni: download.windowsupdate.com
+  type: anytls
+  udp: true
+- down: 300
+  name: "\U0001F1FA\U0001F1F8 US 002 | ⬇️ 16.75MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 50001
+  server: ny.jueduibupao.top
+  skip-cert-verify: true
+  sni: ny.jueduibupao.top
+  type: hysteria2
+  up: 300
+- name: "\U0001F1F8\U0001F1EC SG 008 | ⬇️ 14.95MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55005
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 009 | ⬇️ 11.96MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55010
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 012 | ⬇️ 11.64MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55008
+  server: dafeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- down: 300
+  name: "\U0001F1ED\U0001F1F0 HK 013 | ⬇️ 8.74MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 50001
+  server: hk1.jueduibupao.top
+  skip-cert-verify: true
+  sni: hk1.jueduibupao.top
+  type: hysteria2
+  up: 100
+- name: "\U0001F1F8\U0001F1EC SG 010 | ⬇️ 8.65MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55006
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 014 | ⬇️ 8.11MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55009
+  server: dafeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 011 | ⬇️ 7.54MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55008
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1ED\U0001F1F0 HK 015 | ⬇️ 6.75MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55003
+  server: dafeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 012 | ⬇️ 5.90MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55009
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: anytls
+  udp: true
+- name: "\U0001F1F8\U0001F1EC SG 013 | ⬇️ 5.08MB/s"
+  password: b88495b9-7ba9-4165-8d8c-b37568f3ab3b
+  port: 55007
+  server: xiaofeizhu.xxxyun.top
+  skip-cert-verify: true
+  sni: www.microsoft.com
   type: anytls
   udp: true
