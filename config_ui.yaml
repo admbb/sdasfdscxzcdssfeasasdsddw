@@ -235,7 +235,7 @@ proxy-groups:
   - name: 📀 媒体影院
     type: fallback
     lazy: true
-    proxies: [🫧 nb优质节点, 🫧 yyss优质节点, ✈️ nb节点, ✈️ yyss节点, 🚀 自建节点]
+    proxies: [🫧 yyss优质节点, ✈️ yyss节点, ✈️ zzsj节点, 🚀 自建节点]
 
   # =========================================
   # 🌍 4. 地区节点筛选
@@ -272,7 +272,7 @@ proxy-groups:
     lazy: true
     tolerance: 50
     interval: 300
-    proxies: [🚀 自建节点, ✈️ zzsj节点, ✈️ mj节点, ✈️ yyss节点, ✈️ nb节点]
+    proxies: [🚀 自建节点, ✈️ zzsj节点, ✈️ mj节点, ✈️ yyss节点]
     url: http://www.gstatic.com/generate_204
 
   - name: ♻️ 香港自动
