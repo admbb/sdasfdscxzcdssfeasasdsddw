@@ -198,12 +198,12 @@ proxy-groups:
 
   - name: 🎥 NETFLIX
     type: select
-    proxies: [🎥 NETFLIX节点, 🎥 nb_NETFLIX节点, 🎥 yyss_NETFLIX节点, 🎥 zzsj_NETFLIX节点, ♻️ 自动选择, 🌐 手动选择]
+    proxies: [🎥 NETFLIX节点, 🎥 yyss_NETFLIX节点, 🎥 zzsj_NETFLIX节点, ♻️ 自动选择, 🌐 手动选择]
 
   - name: 🎥 NETFLIX节点
     type: fallback
     lazy: true
-    proxies: [🎥 yyss_NETFLIX节点, 🎥 nb_NETFLIX节点, 🎥 zzsj_NETFLIX节点, 🌐 手动选择]
+    proxies: [🎥 yyss_NETFLIX节点, 🎥 zzsj_NETFLIX节点, 🌐 手动选择]
 
   - name: 🎥 yyss_NETFLIX节点
     type: url-test
@@ -221,15 +221,6 @@ proxy-groups:
     interval: 300
     include-all: true
     filter: "(?i)^(?=.*zzsj)(?=.*(netflix|流媒体)).*$"
-    url: https://www.netflix.com/favicon.ico
-
-  - name: 🎥 nb_NETFLIX节点
-    type: url-test
-    lazy: true
-    tolerance: 50
-    interval: 300
-    include-all: true
-    filter: "(?i)^(?=.*nb)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
 
   - name: 📀 媒体影院
