@@ -17,15 +17,6 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: DIRECT
-  42:
-    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/4_2.yaml"
-    type: http
-    interval: 10800
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: DIRECT
   
 # 节点信息
 proxies:
@@ -363,27 +354,10 @@ proxy-groups:
     filter: "yyss"
     url: http://www.gstatic.com/generate_204
 
-  - name: ✈️ nb节点
-    type: url-test
-    lazy: true
-    include-all: true
-    tolerance: 50
-    interval: 300
-    filter: "nb"
-    url: http://www.gstatic.com/generate_204
-
   - name: 🫧 yyss优质节点
     type: url-test
     lazy: true
     use: [32]
-    tolerance: 50
-    interval: 300
-    url: http://www.gstatic.com/generate_204
-
-  - name: 🫧 nb优质节点
-    type: url-test
-    lazy: true
-    use: [42]
     tolerance: 50
     interval: 300
     url: http://www.gstatic.com/generate_204
