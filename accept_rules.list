@@ -10,6 +10,7 @@ DOMAIN-SUFFIX, makerworld.com
 DOMAIN-REGEX, ^\d+\.xyz$
 DOMAIN-SUFFIX, linux.do
 DOMAIN-SUFFIX, iaplc.com
+DOMAIN-SUFFIX, hifiti.com
 
 ## > Docker
 DOMAIN-SUFFIX, docker.com
