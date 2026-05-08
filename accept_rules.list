@@ -11,6 +11,7 @@ DOMAIN-REGEX, ^\d+\.xyz$
 DOMAIN-SUFFIX, linux.do
 DOMAIN-SUFFIX, iaplc.com
 DOMAIN-SUFFIX, hifiti.com
+DOMAIN-SUFFIX,  v2rayssr.com
 
 ## > Docker
 DOMAIN-SUFFIX, docker.com
