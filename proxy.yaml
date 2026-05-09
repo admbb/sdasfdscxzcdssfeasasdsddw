@@ -44,7 +44,7 @@ proxies:
   - {"name":"mj_🇯🇵 日本-优化","type":"vmess","server":"planb.mojcn.com","port":16617,"uuid":"0db8b699-548d-4ed8-b720-6194783ecc9e","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-opts":{"path":"/","headers":{"Host":"445eb7ce2d66c34309d2e1dacbeaf3b9.mobgslb.tbcache.com"}}}
   - {"name":"mj_🇯🇵 日本-优化2","type":"vmess","server":"m.cnmjin.net","port":16617,"uuid":"0db8b699-548d-4ed8-b720-6194783ecc9e","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-opts":{"path":"/","headers":{"Host":"445eb7ce2d66c34309d2e1dacbeaf3b9.mobgslb.tbcache.com"}}}
   - {"name":"mj_🇯🇵 日本-优化3","type":"vmess","server":"t.cnmjcn.cyou","port":16617,"uuid":"0db8b699-548d-4ed8-b720-6194783ecc9e","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-opts":{"path":"/","headers":{"Host":"445eb7ce2d66c34309d2e1dacbeaf3b9.mobgslb.tbcache.com"}}}
-  - {"name":"mj_🇯🇵 日本JP-HY2","server":"jp.mjhy2.com","port":1443,"sni":"jp.mjhy2.com","up":10000,"down":10000,"skip-cert-verify":true,"type":"hysteria2","password":"0db8b699-548d-4ed8-b720-6194783ecc9e"}
+  - {"name":"mj_🇯🇵 日本JP-HY2","server":"jp.mjhy2.com","port":1443,"sni":"jp.mjhy2.com","up":3000,"down":3000,"skip-cert-verify":true,"type":"hysteria2","password":"0db8b699-548d-4ed8-b720-6194783ecc9e"}
   - {"name":"mj_🇸🇬 新加坡SG-HY2","server":"sg.mjhy2.com","port":1443,"sni":"sg.mjhy2.com","up":10000,"down":10000,"skip-cert-verify":true,"type":"hysteria2","password":"0db8b699-548d-4ed8-b720-6194783ecc9e"}
   - {"name":"mj_🇸🇬 新加坡-优化-Gemini-GPT","type":"vmess","server":"planb.mojcn.com","port":16618,"uuid":"0db8b699-548d-4ed8-b720-6194783ecc9e","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-opts":{"path":"/","headers":{"Host":"445eb7ce2d66c34309d2e1dacbeaf3b9.mobgslb.tbcache.com"}}}
   - {"name":"mj_🇸🇬 新加坡-优化2-Gemini-GPT","type":"vmess","server":"m.cnmjin.net","port":16618,"uuid":"0db8b699-548d-4ed8-b720-6194783ecc9e","alterId":0,"cipher":"auto","udp":true,"network":"ws","ws-opts":{"path":"/","headers":{"Host":"445eb7ce2d66c34309d2e1dacbeaf3b9.mobgslb.tbcache.com"}}}
@@ -89,6 +89,7 @@ proxies:
   - {"name":"zzsj_🇮🇸 冰岛","type":"ss","server":"auth-center.zzdy25.com","port":55557,"cipher":"chacha20-ietf-poly1305","password":"c7ca34c7-dd6e-4d1c-827d-0217c593e506","udp":true}
   - {"name":"zzsj_🇯🇵 日本01丨ChatGPT","type":"ss","server":"account-center.zzdy25.com","port":57663,"cipher":"chacha20-ietf-poly1305","password":"c7ca34c7-dd6e-4d1c-827d-0217c593e506","udp":true}
   - {"name":"zzsj_🇯🇵 日本02丨Netflix","type":"ss","server":"auth-center.zzdy25.com","port":46899,"cipher":"chacha20-ietf-poly1305","password":"c7ca34c7-dd6e-4d1c-827d-0217c593e506","udp":true}
+  - {"name":"zzsj_🇯🇵 日本VIP","type":"ss","server":"auth-center.zzdy25.com","port":13190,"cipher":"chacha20-ietf-poly1305","password":"c7ca34c7-dd6e-4d1c-827d-0217c593e506","udp":true}
   - {"name":"zzsj_🇰🇷 韩国","type":"ss","server":"auth-center.zzdy25.com","port":55556,"cipher":"chacha20-ietf-poly1305","password":"c7ca34c7-dd6e-4d1c-827d-0217c593e506","udp":true}
   - {"name":"zzsj_🇲🇾 马来西亚","type":"ss","server":"auth-center.zzdy25.com","port":54001,"cipher":"chacha20-ietf-poly1305","password":"c7ca34c7-dd6e-4d1c-827d-0217c593e506","udp":true}
   - {"name":"zzsj_🇳🇿 新西兰","type":"ss","server":"auth-center.zzdy25.com","port":55558,"cipher":"chacha20-ietf-poly1305","password":"c7ca34c7-dd6e-4d1c-827d-0217c593e506","udp":true}
