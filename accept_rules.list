@@ -12,6 +12,9 @@ DOMAIN-SUFFIX, linux.do
 DOMAIN-SUFFIX, iaplc.com
 DOMAIN-SUFFIX, hifiti.com
 DOMAIN-SUFFIX,  v2rayssr.com
+DOMAIN-SUFFIX,  epochtimes.com
+DOMAIN-SUFFIX,  yesterdayprotests.com
+DOMAIN-SUFFIX,  epochtimes.com
 
 ## > Docker
 DOMAIN-SUFFIX, docker.com
