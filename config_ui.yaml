@@ -420,6 +420,7 @@ rules:
 
   # === 8. 中国大陆流量 (国内直连) ===
   - DOMAIN-SUFFIX,wensitang.site,DIRECT
+  - DOMAIN-SUFFIX,frp-cat.com,DIRECT
   - RULE-SET,cn_domain,DIRECT
   - RULE-SET,cn_ip,DIRECT,no-resolve
 
