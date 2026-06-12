@@ -1,6 +1,6 @@
 proxy-providers:
   all:
-    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/proxy.yaml"
+    url: "https://gist.githubusercontent.com/admbb/3f29c718a84c10cd1507cb1ff232f56d/raw/6ff16d26990130178994b317ab8a59116f470759/xiaochendeclashproxyall"
     type: http
     interval: 86400
     health-check:
