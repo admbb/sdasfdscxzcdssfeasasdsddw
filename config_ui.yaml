@@ -1,6 +1,6 @@
 proxy-providers:
   all:
-    url: "https://gist.githubusercontent.com/admbb/3f29c718a84c10cd1507cb1ff232f56d/raw/6ff16d26990130178994b317ab8a59116f470759/xiaochendeclashproxyall"
+    url: "https://gist.githubusercontent.com/admbb/3f29c718a84c10cd1507cb1ff232f56d/raw/github_mihomo"
     type: http
     interval: 86400
     health-check:
