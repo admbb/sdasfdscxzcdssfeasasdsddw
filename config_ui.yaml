@@ -122,7 +122,7 @@ proxy-groups:
   - name: 🔯 故障转移
     type: fallback
     lazy: true
-    proxies: [🫧 yyss优质节点, ✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, ✈️ mj节点]
+    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, ✈️ mj节点]
 
   - name: 🐟 漏网之鱼
     type: select
@@ -235,7 +235,7 @@ proxy-groups:
   - name: 📀 媒体影院
     type: fallback
     lazy: true
-    proxies: [🫧 yyss优质节点, ✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, 🚀 自建节点]
+    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, 🚀 自建节点]
 
   # =========================================
   # 🌍 4. 地区节点筛选
