@@ -8,25 +8,16 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: DIRECT
-  32:
-    url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/3_2.yaml"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: DIRECT
   
 # 节点信息
 proxies:
   - {name: 🇯🇵 日本_vmess_ipv6_zj, server: natjp5-2.bytevirt.net, port: 32515, type: vmess, uuid: 081dbf5a-d8b6-40c8-96f8-3c4ca9f50442, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, tfo: false}
-  - {name: 🇯🇵 日本_vmess_zj, server: 147.79.20.181, port: 32519, type: vmess, uuid: d60e5f2f-c007-42e3-bd99-e9e2f804f9bc, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: www.apple.com, tfo: false}
+
 # 全局配置 
 mixed-port: 7890
 allow-lan: true
 bind-address: "*"
-ipv6: false
+ipv6: true
 unified-delay: true
 tcp-concurrent: true
 log-level: warning
@@ -38,11 +29,11 @@ profile:
   store-fake-ip: true
 
 # 为防止使用插件朋友遇到面板问题，我注释掉了此模块。
-external-controller: 0.0.0.0:9090
-secret: "88888888"
-external-ui: ui
-external-ui-name: zashboard
-external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+#external-controller: 0.0.0.0:9090
+#secret: "88888888"
+#external-ui: ui
+#external-ui-name: zashboard
+#external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
 # 嗅探（fakeip下其实可以不用嗅探）
 sniffer:
@@ -136,6 +127,10 @@ proxy-groups:
   # 🤖 2. 应用与网站分流组
   # =========================================
   - name: 🤖 AI
+    type: select
+    proxies: [🤖 GPT, 🤖 Gemini, 🚀 自建节点, 🌐 手动选择]
+    
+  - name: 🤖 GPT
     type: url-test
     lazy: true
     include-all: true
@@ -150,7 +145,7 @@ proxy-groups:
     include-all: true
     tolerance: 50
     interval: 300
-    filter: "^(?=.*Gemini)(?=.*[新日美]).*|.*zj"
+    filter: "^(?=.*Gemini)(?=.*[新日美]).*"
     url: https://gemini.google.com/favicon.ico
 
   - name: 🍀 Google
@@ -363,18 +358,10 @@ proxy-groups:
     filter: "nb"
     url: http://www.gstatic.com/generate_204
 
-  - name: 🫧 yyss优质节点
-    type: url-test
-    lazy: true
-    use: [32]
-    tolerance: 50
-    interval: 300
-    url: http://www.gstatic.com/generate_204
-
   - name: 🚀 自建节点
     type: url-test
     lazy: true
-    proxies: [🇯🇵 日本_vmess_zj, 🇯🇵 日本_vmess_ipv6_zj]
+    proxies: [🇯🇵 日本_vmess_ipv6_zj]
 
 # 🌍📺🧠🛡️🧪😊💻🎯⛩️🤡
 # yyss.*?美国
@@ -395,7 +382,7 @@ rules:
   - RULE-SET,AWAvenue-Ads_domain,🚫 广告拦截
   
   # === 3. AI 服务 (对 IP 要求严格，优先匹配) ===
-  - RULE-SET,gemini_domain,🤖 Gemini
+  - RULE-SET,gemini_domain,🤖 AI
   - RULE-SET,openai_domain,🤖 AI
   - RULE-SET,ai_domain,🤖 AI
   - RULE-SET,ai_ip,🤖 AI,no-resolve
