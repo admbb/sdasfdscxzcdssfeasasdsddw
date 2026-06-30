@@ -141,7 +141,7 @@ proxy-groups:
     include-all: true
     tolerance: 50
     interval: 300
-    filter: "(?i)(AI|Gemini|GPT|Claude)"
+    filter: "(?i)(AI|Gemini|GPT|Claude|.*zj)"
     url: https://chatgpt.com/favicon.ico
 
   - name: 🤖 Gemini
