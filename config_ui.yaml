@@ -136,12 +136,16 @@ proxy-groups:
   # 🤖 2. 应用与网站分流组
   # =========================================
   - name: 🤖 AI
+    type: select
+    proxies: [🤖 GPT, 🤖 Gemini, 🚀 自建节点, 🌐 手动选择]
+    
+  - name: 🤖 GPT
     type: url-test
     lazy: true
     include-all: true
     tolerance: 50
     interval: 300
-    filter: "(?i)(AI|Gemini|GPT|Claude|.*zj)"
+    filter: "(?i)(AI|Gemini|GPT|Claude)"
     url: https://chatgpt.com/favicon.ico
 
   - name: 🤖 Gemini
@@ -150,7 +154,7 @@ proxy-groups:
     include-all: true
     tolerance: 50
     interval: 300
-    filter: "^(?=.*Gemini)(?=.*[新日美]).*|.*zj"
+    filter: "^(?=.*Gemini)(?=.*[新日美]).*"
     url: https://gemini.google.com/favicon.ico
 
   - name: 🍀 Google
@@ -395,7 +399,7 @@ rules:
   - RULE-SET,AWAvenue-Ads_domain,🚫 广告拦截
   
   # === 3. AI 服务 (对 IP 要求严格，优先匹配) ===
-  - RULE-SET,gemini_domain,🤖 Gemini
+  - RULE-SET,gemini_domain,🤖 AI
   - RULE-SET,openai_domain,🤖 AI
   - RULE-SET,ai_domain,🤖 AI
   - RULE-SET,ai_ip,🤖 AI,no-resolve
