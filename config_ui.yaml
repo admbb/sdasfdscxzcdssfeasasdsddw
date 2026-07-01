@@ -202,7 +202,6 @@ proxy-groups:
     tolerance: 50
     interval: 300
     include-all: true
-    lazy: true
     filter: "(?i)^(?=.*yyss)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
 
@@ -212,7 +211,6 @@ proxy-groups:
     tolerance: 50
     interval: 300
     include-all: true
-    lazy: true
     filter: "(?i)^(?=.*zzsj)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
   
@@ -222,7 +220,6 @@ proxy-groups:
     tolerance: 50
     interval: 300
     include-all: true
-    lazy: true
     filter: "(?i)^(?=.*nb)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
 
