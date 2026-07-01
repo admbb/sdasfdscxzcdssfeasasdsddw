@@ -28,13 +28,6 @@ profile:
   store-selected: false
   store-fake-ip: true
 
-# 为防止使用插件朋友遇到面板问题，我注释掉了此模块。
-#external-controller: 0.0.0.0:9090
-#secret: "88888888"
-#external-ui: ui
-#external-ui-name: zashboard
-#external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
-
 # 嗅探（fakeip下其实可以不用嗅探）
 sniffer:
   enable: true
@@ -145,7 +138,7 @@ proxy-groups:
     include-all: true
     tolerance: 50
     interval: 300
-    filter: "^(?=.*Gemini)(?=.*[新日美]).*"
+    filter: "^(?:(?=.*Gemini)(?=.*[新日美])|.*zj).*"
     url: https://gemini.google.com/favicon.ico
 
   - name: 🍀 Google
@@ -192,10 +185,6 @@ proxy-groups:
     proxies: [📀 媒体影院, 🎥 NETFLIX节点, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]
 
   - name: 🎥 NETFLIX
-    type: select
-    proxies: [🎥 NETFLIX节点, 🎥 yyss_NETFLIX节点, 🎥 zzsj_NETFLIX节点, 🎥 nb_NETFLIX节点, ♻️ 自动选择, 🌐 手动选择]
-
-  - name: 🎥 NETFLIX节点
     type: fallback
     lazy: true
     proxies: [🎥 yyss_NETFLIX节点, 🎥 zzsj_NETFLIX节点, 🎥 nb_NETFLIX节点, 🌐 手动选择]
@@ -206,7 +195,7 @@ proxy-groups:
     tolerance: 50
     interval: 300
     include-all: true
-    filter: "(?i)^(?=.*yyss)(?=.*(netflix|流媒体|新加坡|香港|美国)).*$"
+    filter: "(?i)^(?=.*yyss)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
 
   - name: 🎥 zzsj_NETFLIX节点
@@ -382,7 +371,7 @@ rules:
   - RULE-SET,AWAvenue-Ads_domain,🚫 广告拦截
   
   # === 3. AI 服务 (对 IP 要求严格，优先匹配) ===
-  - RULE-SET,gemini_domain,🤖 AI
+  - RULE-SET,gemini_domain,🤖 GPT
   - RULE-SET,openai_domain,🤖 AI
   - RULE-SET,ai_domain,🤖 AI
   - RULE-SET,ai_ip,🤖 AI,no-resolve
