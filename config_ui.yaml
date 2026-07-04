@@ -12,8 +12,8 @@ proxy-providers:
 # 节点信息
 proxies:
   - {name: 🇯🇵 日本_vmess_ipv6_zj, server: natjp5-2.bytevirt.net, port: 32515, type: vmess, uuid: 081dbf5a-d8b6-40c8-96f8-3c4ca9f50442, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, tfo: false}
-  - {name: 3, type: vmess, server: 188.253.125.140, port: 23236, uuid: fe0f5652-b04a-4bdf-8403-deaee9b1c34c, alterId: 0, cipher: auto, udp: true, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: /wjddjwbsjndejjdfnf}, client-fingerprint: chrome, alpn: [h2, http/1.1], ech-opts: {enable: true, config: "AFP+DQBPAAAgACCThD3a994ZOdbmgGSQfV4PhWwodX3Bo17cZ4doyS1GBAAkAAEAAQABAAIAAQADAAIAAQACAAIAAgADAAMAAQADAAIAAwADAAAAAA=="}}
-# 全局配置 
+  - {name: vless-r4vuqvwk0b, server: 188.253.125.140, port: 443, client-fingerprint: chrome, encryption: none, network: tcp, reality-opts: {public-key: SGhLv4Jp85RIdf-bvQnW9hD1tnYknzAdJtnRKtU6glg, short-id: df4918768a0b64e4}, servername: www.compliance.sony.eu, tls: true, type: vless, udp: true, uuid: ae66a655-d529-412d-a7d5-2b933d18c4ee, xudp: true, skip-cert-verify: true, tfo: false}
+  - {name: hysteria-r4vuqvwk0b, server: 188.253.125.140, port: 16492, alpn: [h3], down: "", fingerprint: "", obfs: salamander, obfs-password: k38na0523su9a0t8, password: sgvu6z6fkk1yc32e, skip-cert-verify: true, sni: www.yahoo.com, type: hysteria2, up: "", tfo: false}# 全局配置 
 mixed-port: 7890
 allow-lan: true
 bind-address: "*"
