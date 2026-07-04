@@ -127,7 +127,7 @@ proxy-groups:
     expected-status: 204
     empty-fallback: DIRECT
     lazy: true
-    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, ✈️ mj节点]
+    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, 🚀 自建节点, ✈️ mj节点]
 
   - name: 🐟 漏网之鱼
     type: select
@@ -140,10 +140,6 @@ proxy-groups:
   # =========================================
   # 🤖 2. 应用与网站分流组
   # =========================================
-  - name: 🤖 AI
-    type: select
-    proxies: [🤖 GPT, 🤖 Gemini, 🚀 自建节点, 🌐 手动选择]
-    
   - name: 🤖 GPT
     type: url-test
     empty-fallback: DIRECT
@@ -151,7 +147,7 @@ proxy-groups:
     include-all: true
     tolerance: 50
     interval: 300
-    filter: "(?i)(AI|Gemini|GPT|Claude)"
+    filter: "(?i)(AI|Gemini|GPT|Claude|.*zj)"
     url: https://chatgpt.com/favicon.ico
 
   - name: 🤖 Gemini
