@@ -20,6 +20,7 @@ bind-address: "*"
 ipv6: false
 unified-delay: true
 tcp-concurrent: true
+find-process-mode: strict
 log-level: warning
 global-client-fingerprint: chrome
 keep-alive-idle: 600
@@ -92,6 +93,14 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    geosite:
+      - geolocation-!cn
  
 # 出站策略，根据自己情况调整每个策略里分组排序，增删都可以，比如把美国自动放到第一个，比如删除香港故转，注意别漏掉表情逗号等。
 # 如果相应分组没有筛选到对应的国家，请根据自己节点名字调整筛选关键字。
@@ -112,6 +121,11 @@ proxy-groups:
 
   - name: 🔯 故障转移
     type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
     lazy: true
     proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, ✈️ mj节点]
 
@@ -195,6 +209,11 @@ proxy-groups:
 
   - name: 🎥 NETFLIX
     type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
     lazy: true
     proxies: [🎥 yyss_NETFLIX节点, 🎥 zzsj_NETFLIX节点, 🎥 nb_NETFLIX节点, 🌐 手动选择]
 
@@ -230,6 +249,11 @@ proxy-groups:
 
   - name: 📀 媒体影院
     type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
     lazy: true
     proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, 🚀 自建节点]
 
@@ -239,24 +263,28 @@ proxy-groups:
   - name: 🇭🇰 香港节点
     type: select
     include-all: true
+    empty-fallback: DIRECT
     filter: "(港|HK|(?i)Hong)"
     exclude-filter: "(台|日|韩|新|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
 
   - name: 🇯🇵 日本节点
     type: select
     include-all: true
+    empty-fallback: DIRECT
     filter: "(日|JP|(?i)Japan)"
     exclude-filter: "(港|台|韩|新|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
 
   - name: 🇸🇬 狮城节点
     type: select
     include-all: true
+    empty-fallback: DIRECT
     filter: "(新加坡|坡|狮城|SG|Singapore)"
     exclude-filter: "(台|日|韩|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
 
   - name: 🇺🇲 美国节点
     type: select
     include-all: true
+    empty-fallback: DIRECT
     filter: "(美|US|(?i)States|America)"
     exclude-filter: "(港|台|韩|新|日|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
 
