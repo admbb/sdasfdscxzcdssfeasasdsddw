@@ -17,7 +17,7 @@ proxies:
 mixed-port: 7890
 allow-lan: true
 bind-address: "*"
-ipv6: true
+ipv6: false
 unified-delay: true
 tcp-concurrent: true
 log-level: warning
@@ -80,7 +80,7 @@ dns:
   ipv6: false
   respect-rules: true
   enhanced-mode: fake-ip
-  fake-ip-range: 28.0.0.1/8
+  fake-ip-range: 198.18.0.1/16
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
     - "rule-set:fakeipfilter_domain"
@@ -132,6 +132,7 @@ proxy-groups:
     
   - name: 🤖 GPT
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
@@ -141,6 +142,7 @@ proxy-groups:
 
   - name: 🤖 Gemini
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
@@ -198,27 +200,30 @@ proxy-groups:
 
   - name: 🎥 yyss_NETFLIX节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     tolerance: 50
-    interval: 300
+    interval: 900
     include-all: true
     filter: "(?i)^(?=.*yyss)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
 
   - name: 🎥 zzsj_NETFLIX节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     tolerance: 50
-    interval: 300
+    interval: 900
     include-all: true
     filter: "(?i)^(?=.*zzsj)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
   
   - name: 🎥 nb_NETFLIX节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     tolerance: 50
-    interval: 300
+    interval: 900
     include-all: true
     filter: "(?i)^(?=.*nb)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
@@ -260,58 +265,64 @@ proxy-groups:
   # =========================================
   - name: ♻️ 自动选择
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     tolerance: 50
-    interval: 300
+    interval: 900
     proxies: [🚀 自建节点, ✈️ zzsj节点, ✈️ mj节点, ✈️ yyss节点, ✈️ nb节点]
     url: http://www.gstatic.com/generate_204
 
   - name: ♻️ 香港自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
-    interval: 300
+    interval: 900
     filter: "(港|HK|(?i)Hong)"
     exclude-filter: "(台|日|韩|新|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
     url: http://www.gstatic.com/generate_204
 
   - name: ♻️ 日本自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
-    interval: 300
+    interval: 900
     filter: "(日|JP|(?i)Japan)"
     exclude-filter: "(港|台|韩|新|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
     url: http://www.gstatic.com/generate_204
 
   - name: ♻️ 狮城自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
-    interval: 300
+    interval: 900
     filter: "(新加坡|坡|狮城|SG|Singapore)"
     exclude-filter: "(港|台|韩|日|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
     url: http://www.gstatic.com/generate_204
 
   - name: ♻️ 美国自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
-    interval: 300
+    interval: 900
     filter: "(美|US|(?i)States|America)"
     exclude-filter: "(港|台|日|韩|新|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
     url: http://www.gstatic.com/generate_204
 
   - name: ♻️ 其他自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
-    interval: 300
+    interval: 900
     exclude-filter: "(港|新|日|美|过滤|直连|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
     url: http://www.gstatic.com/generate_204
 
@@ -320,42 +331,47 @@ proxy-groups:
   # =========================================
   - name: ✈️ zzsj节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
-    interval: 300
+    interval: 900
     filter: "zzsj"
     url: http://www.gstatic.com/generate_204
 
   - name: ✈️ mj节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
-    interval: 300
+    interval: 900
     filter: "mj"
     url: http://www.gstatic.com/generate_204
 
   - name: ✈️ yyss节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
-    interval: 300
+    interval: 900
     filter: "yyss"
     url: http://www.gstatic.com/generate_204
 
   - name: ✈️ nb节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
     tolerance: 50
-    interval: 300
+    interval: 900
     filter: "nb"
     url: http://www.gstatic.com/generate_204
 
   - name: 🚀 自建节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     proxies: [🇯🇵 日本_vmess_ipv6_zj]
 
@@ -407,14 +423,14 @@ rules:
   # === 6. 游戏服务 (直连优先，代理兜底) ===
   - RULE-SET,steamcn_domain,DIRECT
   - RULE-SET,games_direct_domain,DIRECT
-  - RULE-SET,games_proxy_domain,🔯 故障转移
   - RULE-SET,steam_domain,🎮 Games
   - RULE-SET,epic_domain,🎮 Games
   - RULE-SET,origin_domain,🎮 Games
   - RULE-SET,ea_domain,🎮 Games
   - RULE-SET,playstation_domain,🎮 Games
   - RULE-SET,xbox_domain,🎮 Games
-  - RULE-SET,nintendo_domain,🎮 Games  
+  - RULE-SET,nintendo_domain,🎮 Games
+  - RULE-SET,games_proxy_domain,🔯 故障转移
 
   # === 7. 兜底与大范围代理 (通用规则) ===
   - RULE-SET,proxy_domain,🔯 故障转移
