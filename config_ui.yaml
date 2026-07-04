@@ -418,10 +418,10 @@ rules:
   - RULE-SET,AWAvenue-Ads_domain,🚫 广告拦截
   
   # === 3. AI 服务 (对 IP 要求严格，优先匹配) ===
-  - RULE-SET,gemini_domain,🤖 GPT
-  - RULE-SET,openai_domain,🤖 AI
-  - RULE-SET,ai_domain,🤖 AI
-  - RULE-SET,ai_ip,🤖 AI,no-resolve
+  - RULE-SET,gemini_domain,🤖 Gemini
+  - RULE-SET,openai_domain,🤖 GPT
+  - RULE-SET,ai_domain,🤖 GPT
+  - RULE-SET,ai_ip,🤖 GPT,no-resolve
 
   # === 4. 流媒体与社交平台 ===
   - RULE-SET,youtube_domain,📹 YouTube
