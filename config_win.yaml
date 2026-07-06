@@ -13,6 +13,7 @@ proxy-providers:
 proxies:
   - {name: 🇯🇵 日本_vmess_ipv6_zj, server: natjp5-2.bytevirt.net, port: 32515, type: vmess, uuid: 081dbf5a-d8b6-40c8-96f8-3c4ca9f50442, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, tfo: false}
   - {name: 🇸🇬 新加坡_vless_zj, server: 188.253.125.140, port: 443, client-fingerprint: chrome, encryption: none, network: tcp, reality-opts: {public-key: SGhLv4Jp85RIdf-bvQnW9hD1tnYknzAdJtnRKtU6glg, short-id: df4918768a0b64e4}, servername: www.compliance.sony.eu, tls: true, type: vless, udp: true, uuid: ae66a655-d529-412d-a7d5-2b933d18c4ee, xudp: true, skip-cert-verify: true, tfo: false}
+  - {name: 🇸🇬 新加坡_vless_zj_中转, server: 188.253.125.140, port: 443, client-fingerprint: chrome, encryption: none, network: tcp, reality-opts: {public-key: SGhLv4Jp85RIdf-bvQnW9hD1tnYknzAdJtnRKtU6glg, short-id: df4918768a0b64e4}, servername: www.compliance.sony.eu, tls: true, type: vless, udp: true, uuid: ae66a655-d529-412d-a7d5-2b933d18c4ee, xudp: true, skip-cert-verify: true, tfo: false, dialer-proxy: 🛠️ 机场节点}
 
 # 全局配置 
 mixed-port: 7890
@@ -104,7 +105,7 @@ proxy-groups:
 
   - name: 🔯 故障转移
     type: fallback
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 900
     timeout: 3000
     expected-status: 204
@@ -141,7 +142,7 @@ proxy-groups:
     tolerance: 50
     interval: 300
     filter: "^(?:(?=.*Gemini)(?=.*[新日美])|.*zj).*"
-    url: https://gemini-d-google-d-com-s-gmn.v.tuangouai.com/favicon.ico
+    url: https://gemini.google.com/favicon.ico
 
   - name: 🍀 Google
     type: select
@@ -188,7 +189,7 @@ proxy-groups:
 
   - name: 🎥 NETFLIX
     type: fallback
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 900
     timeout: 3000
     expected-status: 204
@@ -228,7 +229,7 @@ proxy-groups:
 
   - name: 📀 媒体影院
     type: fallback
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 900
     timeout: 3000
     expected-status: 204
@@ -277,7 +278,7 @@ proxy-groups:
     tolerance: 50
     interval: 900
     proxies: [🚀 自建节点, ✈️ zzsj节点, ✈️ mj节点, ✈️ yyss节点, ✈️ nb节点]
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
 
   - name: ♻️ 香港自动
     type: url-test
@@ -288,7 +289,7 @@ proxy-groups:
     interval: 900
     filter: "(港|HK|(?i)Hong)"
     exclude-filter: "(台|日|韩|新|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
 
   - name: ♻️ 日本自动
     type: url-test
@@ -299,7 +300,7 @@ proxy-groups:
     interval: 900
     filter: "(日|JP|(?i)Japan)"
     exclude-filter: "(港|台|韩|新|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
 
   - name: ♻️ 狮城自动
     type: url-test
@@ -309,8 +310,8 @@ proxy-groups:
     tolerance: 50
     interval: 900
     filter: "(新加坡|坡|狮城|SG|Singapore)"
-    exclude-filter: "(港|台|韩|日|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    exclude-filter: "(港|台|韩|日|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
+    url: http://cp.cloudflare.com/generate_204
 
   - name: ♻️ 美国自动
     type: url-test
@@ -321,7 +322,7 @@ proxy-groups:
     interval: 900
     filter: "(美|US|(?i)States|America)"
     exclude-filter: "(港|台|日|韩|新|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
 
   - name: ♻️ 其他自动
     type: url-test
@@ -331,7 +332,7 @@ proxy-groups:
     tolerance: 50
     interval: 900
     exclude-filter: "(港|新|日|美|过滤|直连|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
 
   # =========================================
   # ✈️ 6. 机场/底层节点池
@@ -344,7 +345,7 @@ proxy-groups:
     tolerance: 50
     interval: 900
     filter: "zzsj"
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
 
   - name: ✈️ mj节点
     type: url-test
@@ -354,7 +355,7 @@ proxy-groups:
     tolerance: 50
     interval: 900
     filter: "mj"
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
 
   - name: ✈️ yyss节点
     type: url-test
@@ -364,7 +365,7 @@ proxy-groups:
     tolerance: 50
     interval: 900
     filter: "yyss"
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
 
   - name: ✈️ nb节点
     type: url-test
@@ -374,14 +375,23 @@ proxy-groups:
     tolerance: 50
     interval: 900
     filter: "nb"
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: 🛠️ 机场节点
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
+    lazy: true
+    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点]
 
   - name: 🚀 自建节点
     type: url-test
     empty-fallback: DIRECT
     lazy: true
-    proxies: [🇯🇵 日本_vmess_ipv6_zj, 🇸🇬 新加坡_vless_zj]
-
+    proxies: [🇯🇵 日本_vmess_ipv6_zj, 🇸🇬 新加坡_vless_zj, 🇸🇬 新加坡_vless_zj_中转]
 # =========================================
 # 🚦 流量分流规则 (从上往下按优先级匹配)
 # =========================================
