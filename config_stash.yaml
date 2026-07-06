@@ -78,6 +78,23 @@ proxies:
     sni: www.compliance.sony.eu
     benchmark-url: http://www.apple.com/
     benchmark-timeout: 5
+  - name: 🇸🇬 新加坡_vless_zj_中转
+    type: vless
+    server: 188.253.125.140
+    port: 443
+    uuid: ae66a655-d529-412d-a7d5-2b933d18c4ee
+    network: tcp
+    tls: true
+    udp: true
+    skip-cert-verify: true
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: SGhLv4Jp85RIdf-bvQnW9hD1tnYknzAdJtnRKtU6glg
+      short-id: df4918768a0b64e4
+    sni: www.compliance.sony.eu
+    benchmark-url: http://www.apple.com/
+    benchmark-timeout: 5
+    dialer-proxy: ♻️ 狮城自动
 proxy-groups:
   - name: 🌐 手动选择
     type: select
@@ -380,7 +397,7 @@ proxy-groups:
     lazy: true
     include-all: true
     interval: 900
-    filter: (?i)(新加坡|坡|狮城|SG|Singapore)
+    filter: ^(?!.*_zj_中转)(?i).*(新加坡|坡|狮城|SG|Singapore)
     url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
   - name: ♻️ 美国自动
     type: url-test
@@ -429,6 +446,7 @@ proxy-groups:
     proxies:
       - 🇯🇵 日本_vmess_ipv6_zj
       - 🇸🇬 新加坡_vless_zj
+      - 🇸🇬 新加坡_vless_zj_中转
 rules:
   - DST-PORT,1883,DIRECT
   - DST-PORT,8123,DIRECT
