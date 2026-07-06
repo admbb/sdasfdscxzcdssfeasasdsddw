@@ -94,7 +94,7 @@ proxies:
     sni: www.compliance.sony.eu
     benchmark-url: http://www.apple.com/
     benchmark-timeout: 5
-    dialer-proxy: 🤖 GPT
+    dialer-proxy: ♻️ 狮城自动
 proxy-groups:
   - name: 🌐 手动选择
     type: select
@@ -148,7 +148,7 @@ proxy-groups:
     lazy: true
     include-all: true
     interval: 300
-    filter: ^(?!.*zj_中转)(?i).*(AI|Gemini|GPT|Claude|zj)
+    filter: (?i)(AI|Gemini|GPT|Claude|.*zj)
     url: https://chatgpt.com/favicon.ico
   - name: 🤖 Gemini
     type: url-test
@@ -397,7 +397,7 @@ proxy-groups:
     lazy: true
     include-all: true
     interval: 900
-    filter: (?i)(新加坡|坡|狮城|SG|Singapore)
+    filter: ^(?!.*_zj_中转)(?i).*(新加坡|坡|狮城|SG|Singapore)
     url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
   - name: ♻️ 美国自动
     type: url-test
