@@ -94,14 +94,14 @@ proxies:
     sni: www.compliance.sony.eu
     benchmark-url: http://www.apple.com/
     benchmark-timeout: 5
-    dialer-proxy: ♻️ 狮城自动
+    dialer-proxy: 🛠️ 机场节点
 proxy-groups:
   - name: 🌐 手动选择
     type: select
     include-all: true
   - name: 🔯 故障转移
     type: fallback
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 900
     lazy: true
     proxies:
@@ -156,7 +156,7 @@ proxy-groups:
     include-all: true
     interval: 300
     filter: (?i)(Gemini|zj)
-    url: https://gemini-d-google-d-com-s-gmn.v.tuangouai.com/favicon.ico
+    url: https://gemini.google.com/favicon.ico
   - name: 🍀 Google
     type: select
     proxies:
@@ -312,7 +312,7 @@ proxy-groups:
       - 🇺🇲 美国节点
   - name: 🎥 NETFLIX
     type: fallback
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 900
     lazy: true
     proxies:
@@ -343,7 +343,7 @@ proxy-groups:
     url: https://www.netflix.com/favicon.ico
   - name: 📀 媒体影院
     type: fallback
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 900
     lazy: true
     proxies:
@@ -377,69 +377,69 @@ proxy-groups:
       - ✈️ mj节点
       - ✈️ yyss节点
       - ✈️ nb节点
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: ♻️ 香港自动
     type: url-test
     lazy: true
     include-all: true
     interval: 900
     filter: (?i)(港|HK|Hong)
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: ♻️ 日本自动
     type: url-test
     lazy: true
     include-all: true
     interval: 900
     filter: (?i)(日|JP|Japan)
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: ♻️ 狮城自动
     type: url-test
     lazy: true
     include-all: true
     interval: 900
     filter: ^(?!.*_zj_中转)(?i).*(新加坡|坡|狮城|SG|Singapore)
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: ♻️ 美国自动
     type: url-test
     lazy: true
     include-all: true
     interval: 900
     filter: (?i)(美|US|States|America)
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: ♻️ 其他自动
     type: url-test
     lazy: true
     include-all: true
     interval: 900
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: ✈️ zzsj节点
     type: url-test
     lazy: true
     include-all: true
     interval: 900
     filter: zzsj
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: ✈️ mj节点
     type: url-test
     lazy: true
     include-all: true
     interval: 900
     filter: mj
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: ✈️ yyss节点
     type: url-test
     lazy: true
     include-all: true
     interval: 900
     filter: yyss
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: ✈️ nb节点
     type: url-test
     lazy: true
     include-all: true
     interval: 900
     filter: nb
-    url: http://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
   - name: 🚀 自建节点
     type: url-test
     lazy: true
@@ -447,6 +447,16 @@ proxy-groups:
       - 🇯🇵 日本_vmess_ipv6_zj
       - 🇸🇬 新加坡_vless_zj
       - 🇸🇬 新加坡_vless_zj_中转
+  - name: 🛠️ 机场节点
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    lazy: true
+    proxies:
+      - ✈️ yyss节点
+      - ✈️ zzsj节点
+      - ✈️ nb节点
+      - 🚀 自建节点
 rules:
   - DST-PORT,1883,DIRECT
   - DST-PORT,8123,DIRECT
