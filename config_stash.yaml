@@ -456,7 +456,7 @@ proxy-groups:
       - ✈️ yyss节点
       - ✈️ zzsj节点
       - ✈️ nb节点
-      - 🚀 自建节点
+      
 rules:
   - DST-PORT,1883,DIRECT
   - DST-PORT,8123,DIRECT
