@@ -316,26 +316,6 @@ proxy-groups:
       - ✈️ nb节点
       - 🚀 自建节点
 
-  - name: 🇭🇰 香港节点
-    type: select
-    include-all: true
-    filter: (?i)(港|HK|Hong)
-
-  - name: 🇯🇵 日本节点
-    type: select
-    include-all: true
-    filter: (?i)(日|JP|Japan)
-
-  - name: 🇸🇬 狮城节点
-    type: select
-    include-all: true
-    filter: (?i)(新加坡|坡|狮城|SG|Singapore)
-
-  - name: 🇺🇲 美国节点
-    type: select
-    include-all: true
-    filter: (?i)(美|US|States|America)
-
   - name: ♻️ 自动选择
     type: url-test
     lazy: true
