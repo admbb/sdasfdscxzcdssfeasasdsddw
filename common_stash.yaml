@@ -1,11 +1,3 @@
-# Stash 配置文件（由 mihomo 配置转换）
-# 转换说明：
-# 1. 保留原配置的代理节点、远程代理集、策略组、规则与规则集。
-# 2. 移除/改写 mihomo 专用字段：sniffer、exclude-filter、empty-fallback、expected-status、cache-algorithm、respect-rules、proxy-server-nameserver、global-client-fingerprint、keep-alive-*、tfo、xudp 等。
-# 3. DNS 已调整为 Stash 文档中的 default-nameserver / nameserver / fake-ip-filter / follow-rule 结构。
-# 4. exclude-filter 在 Stash 官方策略组文档中没有列出，因此这里没有保留；若导入后节点列表中出现订阅说明节点，需要在 Stash 内手动选择或进一步改写 provider filter。
-# 5. 原配置中带正则前瞻的 filter 已改成更通用的普通正则，减少导入失败概率。
-
 mode: rule
 mixed-port: 7890
 allow-lan: true
