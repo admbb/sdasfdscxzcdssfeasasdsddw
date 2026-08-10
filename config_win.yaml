@@ -196,7 +196,7 @@ proxy-groups:
     tolerance: 50
     interval: 900
     include-all: true
-    filter: "(?i)^(?=.*(netflix|流媒体)).*$"
+    filter: "(?i)netflix|流媒体|yyss"
     url: https://www.netflix.com/favicon.ico
 
   - name: 📀 媒体影院
