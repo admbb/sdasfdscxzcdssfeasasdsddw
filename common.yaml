@@ -1,0 +1,540 @@
+proxy-providers:
+  all:
+    url: "https://gist.githubusercontent.com/admbb/3f29c718a84c10cd1507cb1ff232f56d/raw/github_mihomo"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www-d-gstatic-d-com-s-gmn.v.tuangouai.com/generate_204
+      interval: 300
+      proxy: DIRECT
+  
+# 节点信息
+proxies:
+  - {name: 🇯🇵 日本_vmess_ipv6_zj, server: natjp5-2.bytevirt.net, port: 32515, type: vmess, uuid: 081dbf5a-d8b6-40c8-96f8-3c4ca9f50442, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, tfo: false}
+  - {name: 🇯🇵 日本_vmess_ipv6_zj_中转, server: natjp5-2.bytevirt.net, port: 32515, type: vmess, uuid: 081dbf5a-d8b6-40c8-96f8-3c4ca9f50442, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, tfo: false, dialer-proxy: 🛠️ 机场节点}
+  - {name: 🇸🇬 新加坡_vless_zj, server: 188.253.125.140, port: 443, client-fingerprint: chrome, encryption: none, network: tcp, reality-opts: {public-key: SGhLv4Jp85RIdf-bvQnW9hD1tnYknzAdJtnRKtU6glg, short-id: df4918768a0b64e4}, servername: www.compliance.sony.eu, tls: true, type: vless, udp: true, uuid: ae66a655-d529-412d-a7d5-2b933d18c4ee, xudp: true, skip-cert-verify: true, tfo: false}
+  - {name: 🇸🇬 新加坡_vless_zj_中转, server: 188.253.125.140, port: 443, client-fingerprint: chrome, encryption: none, network: tcp, reality-opts: {public-key: SGhLv4Jp85RIdf-bvQnW9hD1tnYknzAdJtnRKtU6glg, short-id: df4918768a0b64e4}, servername: www.compliance.sony.eu, tls: true, type: vless, udp: true, uuid: ae66a655-d529-412d-a7d5-2b933d18c4ee, xudp: true, skip-cert-verify: true, tfo: false, dialer-proxy: 🛠️ 机场节点}
+
+# 全局配置 
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+log-level: warning
+global-client-fingerprint: chrome
+keep-alive-idle: 600
+keep-alive-interval: 15
+profile:
+  store-selected: false
+  store-fake-ip: true
+
+# 嗅探（fakeip下其实可以不用嗅探）
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
+    - 'www-d-gstatic-d-com-s-gmn.v.tuangouai.com'
+    - '*.gstatic.com'
+    - 'cp.cloudflare.com'
+    # --- 排除系统网络探测与本地设备 ---
+    - 'captive.apple.com' # 苹果网络连通性检测
+    - '*.apple.com'
+    - 'router.asus.com'   # 路由器后台
+    - '*.lan'             # 局域网域名
+    - '*.local'
+
+# 入站
+tun:
+  enable: false # [修改优化] 改为 false，交由 Clash Party 界面上的“虚拟网卡”开关控制
+  # system/gvisor/mixed
+  stack: mixed
+  dns-hijack: ["any:53", "tcp://any:53"]
+  #使用nikki，混入全部不修改的情况，开启接口指定为nikki
+  #device: nikki
+  #使用仅内核自行修改下面三项为true
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+
+# DNS模块
+dns:
+  enable: true
+  cache-algorithm: arc
+  listen: 0.0.0.0:1053
+  ipv6: false
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 28.0.0.1/8
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - "rule-set:fakeipfilter_domain"
+  default-nameserver:
+    - https://223.5.5.5/dns-query
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+
+# 出站策略
+# 🛠️ 预定义锚点 (公共节点列表，不被解析为真实组)
+# =========================================
+pr: &common_proxies [🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]
+pr_direct: &common_proxies_direct [DIRECT, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]
+pr_reject: &common_proxies_reject [REJECT, DIRECT, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]
+proxy-groups:
+  # =========================================
+  # 📌 1. 核心控制与基础组
+  # =========================================
+  - name: 🌐 手动选择
+    type: select
+    include-all: true
+    exclude-filter: "(家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
+  - name: 🔯 故障转移
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
+    lazy: true
+    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, 🚀 自建节点, ✈️ mj节点]
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies: *common_proxies_direct
+
+  - name: 🚫 广告拦截
+    type: select
+    proxies: *common_proxies_reject
+    
+  # =========================================
+  # 🤖 2. 应用与网站分流组
+  # =========================================
+  - name: 🤖 GPT
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 300
+    filter: "(?i)(AI|Gemini|GPT|Claude|.*zj)"
+    url: https://chatgpt.com/favicon.ico
+
+  - name: 🤖 Gemini
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 300
+    filter: "^(?:(?=.*Gemini)(?=.*[新日美])|.*zj).*"
+    url: https://gemini.google.com/favicon.ico
+
+  - name: 🍀 Google
+    type: select
+    proxies: *common_proxies
+
+  - name: 👨🏿‍💻 GitHub
+    type: select
+    proxies: *common_proxies
+
+  - name: 🐬 OneDrive
+    type: select
+    proxies: *common_proxies
+
+  - name: 🪟 Microsoft
+    type: select
+    proxies: *common_proxies_direct
+
+  - name: 🎵 TikTok
+    type: select
+    proxies: *common_proxies
+
+  - name: 🎶 Spotify
+    type: select
+    proxies: *common_proxies
+
+  - name: 📲 Telegram
+    type: select
+    proxies: *common_proxies
+
+  - name: 🎮 Games
+    type: select
+    proxies: *common_proxies
+
+  - name: 💶 PayPal
+    type: select
+    proxies: *common_proxies
+    
+  # =========================================
+  # 🎬 3. 流媒体专区
+  # =========================================
+  - name: 📹 YouTube
+    type: select
+    proxies: [📀 媒体影院, 🎥 NETFLIX, 🔯 故障转移, 🌐 手动选择, ♻️ 自动选择, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 其他自动, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点]
+
+  - name: 🎥 NETFLIX
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
+    lazy: true
+    proxies: [🎥 yyss_NETFLIX节点, 🎥 zzsj_NETFLIX节点, 🎥 nb_NETFLIX节点, 🌐 手动选择]
+
+  - name: 🎥 yyss_NETFLIX节点
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    tolerance: 50
+    interval: 900
+    include-all: true
+    filter: "(?i)^(?=.*yyss)(?=.*(netflix|流媒体)).*$"
+    url: https://www.netflix.com/favicon.ico
+
+  - name: 🎥 zzsj_NETFLIX节点
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    tolerance: 50
+    interval: 900
+    include-all: true
+    filter: "(?i)^(?=.*zzsj)(?=.*(netflix|流媒体)).*$"
+    url: https://www.netflix.com/favicon.ico
+  
+  - name: 🎥 nb_NETFLIX节点
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    tolerance: 50
+    interval: 900
+    include-all: true
+    filter: "(?i)^(?=.*nb)(?=.*(netflix|流媒体)).*$"
+    url: https://www.netflix.com/favicon.ico
+
+  - name: 📀 媒体影院
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
+    lazy: true
+    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, 🚀 自建节点]
+
+  # =========================================
+  # 🌍 4. 地区节点筛选
+  # =========================================
+  - name: 🇭🇰 香港节点
+    type: select
+    include-all: true
+    empty-fallback: DIRECT
+    filter: "(港|HK|(?i)Hong)"
+    exclude-filter: "(台|日|韩|新|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
+  - name: 🇯🇵 日本节点
+    type: select
+    include-all: true
+    empty-fallback: DIRECT
+    filter: "(日|JP|(?i)Japan)"
+    exclude-filter: "(港|台|韩|新|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
+  - name: 🇸🇬 狮城节点
+    type: select
+    include-all: true
+    empty-fallback: DIRECT
+    filter: "(新加坡|坡|狮城|SG|Singapore)"
+    exclude-filter: "(台|日|韩|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
+  - name: 🇺🇲 美国节点
+    type: select
+    include-all: true
+    empty-fallback: DIRECT
+    filter: "(美|US|(?i)States|America)"
+    exclude-filter: "(港|台|韩|新|日|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
+  # =========================================
+  # ⚡ 5. 自动测速组 (Url-Test)
+  # =========================================
+  - name: ♻️ 自动选择
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    tolerance: 50
+    interval: 900
+    proxies: [🚀 自建节点, ✈️ zzsj节点, ✈️ mj节点, ✈️ yyss节点, ✈️ nb节点]
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: ♻️ 香港自动
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 900
+    filter: "(港|HK|(?i)Hong)"
+    exclude-filter: "(台|日|韩|新|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: ♻️ 日本自动
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 900
+    filter: "(日|JP|(?i)Japan)"
+    exclude-filter: "(港|台|韩|新|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: ♻️ 狮城自动
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 900
+    filter: "(新加坡|坡|狮城|SG|Singapore)"
+    exclude-filter: "(港|台|韩|日|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: ♻️ 美国自动
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 900
+    filter: "(美|US|(?i)States|America)"
+    exclude-filter: "(港|台|日|韩|新|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: ♻️ 其他自动
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 900
+    exclude-filter: "(港|新|日|美|过滤|直连|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+    url: http://cp.cloudflare.com/generate_204
+
+  # =========================================
+  # ✈️ 6. 机场/底层节点池
+  # =========================================
+  - name: ✈️ zzsj节点
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 900
+    filter: "zzsj"
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: ✈️ mj节点
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 900
+    filter: "mj"
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: ✈️ yyss节点
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 900
+    filter: "yyss"
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: ✈️ nb节点
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    include-all: true
+    tolerance: 50
+    interval: 900
+    filter: "nb"
+    url: http://cp.cloudflare.com/generate_204
+
+  - name: 🛠️ 机场节点
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
+    lazy: true
+    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点]
+
+  - name: 🚀 自建节点
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    proxies: [🇯🇵 日本_vmess_ipv6_zj, 🇯🇵 日本_vmess_ipv6_zj_中转, 🇸🇬 新加坡_vless_zj, 🇸🇬 新加坡_vless_zj_中转]
+# =========================================
+# 🚦 流量分流规则 (从上往下按优先级匹配)
+# =========================================
+rules:
+  # === 0. Windows 专属进程直连 (防止国内软件被代理) [新增优化] ===
+  - PROCESS-NAME,WeChat.exe,DIRECT
+  - PROCESS-NAME,WeMeet.exe,DIRECT
+  - PROCESS-NAME,DingTalk.exe,DIRECT
+  - PROCESS-NAME,QQ.exe,DIRECT
+  - PROCESS-NAME,Foxmail.exe,DIRECT
+  - PROCESS-NAME,Thunder.exe,DIRECT
+
+  # === 1. 局域网与私有网络 (最高优先级，防止内网异常) ===
+  - RULE-SET,private_domain,DIRECT
+  - RULE-SET,private_ip,DIRECT,no-resolve
+
+  # === 2. 智能家居与特定端口直连 [新增优化] ===
+  - DST-PORT,1883,DIRECT
+
+  # === 3. 广告与追踪器拦截 (尽早拦截，节省资源) ===
+  #- RULE-SET,anti_ad_domain,🚫 广告拦截
+  - RULE-SET,ads_domain,🚫 广告拦截
+  - RULE-SET,trackerslist_domain,DIRECT
+  - RULE-SET,reject_rules,🚫 广告拦截
+  - RULE-SET,AWAvenue-Ads_domain,🚫 广告拦截
+  
+  # === 4. AI 服务 (对 IP 要求严格，优先匹配) ===
+  - RULE-SET,gemini_domain,🤖 Gemini
+  - RULE-SET,openai_domain,🤖 GPT
+  - RULE-SET,ai_domain,🤖 GPT
+  - RULE-SET,ai_ip,🤖 GPT,no-resolve
+
+  # === 5. 流媒体与社交平台 ===
+  - RULE-SET,youtube_domain,📹 YouTube
+  - RULE-SET,netflix_domain,🎥 NETFLIX
+  - RULE-SET,netflix_ip,🎥 NETFLIX,no-resolve
+  - RULE-SET,spotify_domain,🎶 Spotify
+  - RULE-SET,tiktok_domain,🎵 TikTok
+  - RULE-SET,telegram_domain,📲 Telegram
+  - RULE-SET,telegram_ip,📲 Telegram,no-resolve
+  - RULE-SET,media_rules,📀 媒体影院
+
+  # === 6. 特定服务与应用 (海外应用) ===
+  - RULE-SET,google_domain,🍀 Google
+  - RULE-SET,google_ip,🍀 Google,no-resolve
+  - RULE-SET,github_domain,👨🏿‍💻 GitHub
+  - RULE-SET,onedrive_domain,🐬 OneDrive
+  - RULE-SET,microsoft_domain,🪟 Microsoft
+  - RULE-SET,paypal_domain,💶 PayPal
+  - RULE-SET,apple_domain,DIRECT
+  - RULE-SET,apple_ip,DIRECT,no-resolve
+  - RULE-SET,accept_rules,🍀 Google
+
+  # === 7. 游戏服务 (直连优先，代理兜底) ===
+  - RULE-SET,steamcn_domain,DIRECT
+  - RULE-SET,games_direct_domain,DIRECT
+  - RULE-SET,steam_domain,🎮 Games
+  - RULE-SET,epic_domain,🎮 Games
+  - RULE-SET,origin_domain,🎮 Games
+  - RULE-SET,ea_domain,🎮 Games
+  - RULE-SET,playstation_domain,🎮 Games
+  - RULE-SET,xbox_domain,🎮 Games
+  - RULE-SET,nintendo_domain,🎮 Games
+  - RULE-SET,games_proxy_domain,🔯 故障转移
+
+  # === 8. 兜底与大范围代理 (通用规则) ===
+  - RULE-SET,proxy_domain,🔯 故障转移
+
+  # === 9. 中国大陆流量 (国内直连) ===
+  - DOMAIN-SUFFIX,wensitang.site,DIRECT
+  - DOMAIN-SUFFIX,frp-cat.com,DIRECT
+  - RULE-SET,cn_domain,DIRECT
+  - RULE-SET,cn_ip,DIRECT,no-resolve
+
+  # === 10. 最终匹配 (漏网之鱼) ===
+  - MATCH,🐟 漏网之鱼
+  
+# =========================================
+# 🛠️ 规则集锚点定义 (基础配置)
+# =========================================
+rule-anchor:
+  ip: &ip {type: http, interval: 86400, behavior: ipcidr, format: mrs}
+  domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
+  class: &class {type: http, interval: 86400, behavior: classical, format: text}
+  yaml: &yaml {type: http, interval: 86400, behavior: classical, format: yaml}
+
+# =========================================
+# 📦 规则提供商 (核心资源池)
+# =========================================
+rule-providers: 
+  # --- 1. 广告拦截与隐私保护 ---
+  #anti_ad_domain: {<<: *domain, url: "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomo.mrs"}
+  ads_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs"}
+  trackerslist_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/trackerslist.mrs"}
+  AWAvenue-Ads_domain: {<<: *domain, url: "https://gcore.jsdelivr.net/gh/TG-Twilight/AWAvenue-Ads-Rule@main/Filters/AWAvenue-Ads-Rule-Clash.mrs"}
+  
+  # --- 2. AI 专属服务 ---
+  openai_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.mrs"}
+  gemini_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google-gemini.mrs"}
+  ai_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs"}
+  ai_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/AI.mrs"}
+
+  # --- 3. 流媒体服务 ---
+  youtube_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs"}
+  netflix_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs"}
+  netflix_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs"}
+  spotify_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs"}
+  tiktok_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs"}
+
+  # --- 4. 游戏与平台 (主机/PC) ---
+  steam_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs"}
+  epic_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/epicgames.mrs"}
+  ea_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/ea.mrs"}
+  origin_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/origin.mrs"}
+  xbox_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/xbox.mrs"}
+  playstation_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/playstation.mrs"}
+  nintendo_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nintendo.mrs"}
+  games_proxy_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs"}
+  steamcn_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam@cn.mrs"}
+  games_direct_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs"}
+
+  # --- 5. 国际核心应用 & 兜底代理 ---
+  google_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs"}
+  google_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs"}
+  github_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs"}
+  telegram_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs"}
+  telegram_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs"}
+  paypal_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.mrs"}
+  microsoft_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/microsoft.mrs"}
+  onedrive_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/onedrive.mrs"}
+  apple_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs"}
+  apple_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/apple.mrs"}
+  proxy_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs"}
+
+  # --- 6. 国内直连 & 局域网 ---
+  fakeipfilter_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/fakeip-filter.mrs"}
+  private_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs"}
+  private_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs"}
+  cn_domain: {<<: *domain, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs"}
+  cn_ip: {<<: *ip, url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs"}
+
+  # --- 7. 个人 ---
+  media_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/media_rules.list"}
+  accept_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/accept_rules.list"}
+  reject_rules: { <<: *class, url: "https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/reject_rules.list"}
