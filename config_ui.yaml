@@ -414,7 +414,7 @@ proxy-groups:
     interval: 1200          # [优化] 新增
     timeout: 3000           # [优化] 新增
     url: http://cp.cloudflare.com/generate_204
-    proxies: [🇯🇵 日本_vmess_ipv6_zj, 🇸🇬 新加坡_vless_zj, 🇸🇬 新加坡_vless_zj_中转]
+    proxies: [🇯🇵 日本_vmess_ipv6_zj, 🇯🇵 日本_vmess_ipv6_zj_中转, 🇸🇬 新加坡_vless_zj, 🇸🇬 新加坡_vless_zj_中转]
 
 rules:
   # === 0. Linux 基础服务与本地端口防断连 ===
