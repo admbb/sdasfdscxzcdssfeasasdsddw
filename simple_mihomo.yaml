@@ -147,8 +147,8 @@ proxy-groups:
     tolerance: 100
     lazy: true
     proxies:
-      - 🇯🇵 日本_vmess_ipv6_zj
       - 🇯🇵 日本_ss_ipv6_zj_ip
+      - 🇯🇵 日本_vmess_ipv6_zj
 
   - name: 🛠️ 机场节点
     type: url-test
