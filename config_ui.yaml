@@ -116,7 +116,7 @@ proxy-groups:
     expected-status: 204
     empty-fallback: DIRECT
     lazy: true
-    proxies: [✈️ yyss节点, ✈️ nb节点, 🚀 自建节点, ✈️ mj节点]
+    proxies: [🚀 自建节点, ✈️ yyss节点, ✈️ nb节点, ✈️ mj节点]
 
   - name: 🐟 漏网之鱼
     type: select
@@ -245,7 +245,7 @@ proxy-groups:
     expected-status: 204
     empty-fallback: DIRECT
     lazy: true
-    proxies: [✈️ yyss节点, ✈️ nb节点, 🚀 自建节点]
+    proxies: [🚀 自建节点, ✈️ yyss节点, ✈️ nb节点]
 
   # =========================================
   # 🌍 4. 地区节点筛选
