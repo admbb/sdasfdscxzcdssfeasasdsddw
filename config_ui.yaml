@@ -114,7 +114,7 @@ proxy-groups:
     expected-status: 204
     empty-fallback: DIRECT
     lazy: true
-    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, 🚀 自建节点, ✈️ mj节点]
+    proxies: [✈️ yyss节点, ✈️ nb节点, 🚀 自建节点, ✈️ mj节点]
 
   - name: 🐟 漏网之鱼
     type: select
@@ -243,7 +243,7 @@ proxy-groups:
     expected-status: 204
     empty-fallback: DIRECT
     lazy: true
-    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点, 🚀 自建节点]
+    proxies: [✈️ yyss节点, ✈️ nb节点, 🚀 自建节点]
 
   # =========================================
   # 🌍 4. 地区节点筛选
@@ -286,7 +286,7 @@ proxy-groups:
     tolerance: 100          # [优化] 50→100
     interval: 1200          # [优化] 900→1200
     timeout: 3000           # [优化] 新增
-    proxies: [🚀 自建节点, ✈️ zzsj节点, ✈️ mj节点, ✈️ yyss节点, ✈️ nb节点]
+    proxies: [🚀 自建节点, ✈️ mj节点, ✈️ yyss节点, ✈️ nb节点]
     url: http://cp.cloudflare.com/generate_204
 
   - name: ♻️ 香港自动
@@ -351,17 +351,6 @@ proxy-groups:
   # =========================================
   # ✈️ 6. 机场/底层节点池
   # =========================================
-  - name: ✈️ zzsj节点
-    type: url-test
-    empty-fallback: DIRECT
-    lazy: true
-    include-all: true
-    tolerance: 100          # [优化] 50→100
-    interval: 1200          # [优化] 900→1200
-    timeout: 3000           # [优化] 新增
-    filter: "zzsj"
-    url: http://cp.cloudflare.com/generate_204
-
   - name: ✈️ mj节点
     type: url-test
     empty-fallback: DIRECT
@@ -404,7 +393,7 @@ proxy-groups:
     empty-fallback: DIRECT
     lazy: true
     tolerance: 100          # [优化] 新增
-    proxies: [✈️ yyss节点, ✈️ zzsj节点, ✈️ nb节点]
+    proxies: [✈️ yyss节点, ✈️ nb节点]
 
   - name: 🚀 自建节点
     type: url-test
