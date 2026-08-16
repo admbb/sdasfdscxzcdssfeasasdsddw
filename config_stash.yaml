@@ -60,56 +60,95 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: true
-    benchmark-url: http://www.apple.com/
-    benchmark-timeout: 5
+    tfo: false
+
+  - name: 🇯🇵 日本_ss_ipv6_zj_ip
+    type: ss
+    server: "2a12:bec0:164:1007::"
+    port: 32516
+    cipher: aes-256-gcm
+    password: MANw38CesW
+    dialer-proxy: 🛠️ 机场节点
+
+  - name: 🇯🇵 日本_vless_ipv6_zj_ip
+    type: vless
+    server: "2a12:bec0:164:1007::"
+    port: 32517
+    uuid: 9534792e-811b-4540-e351-1abdb4beb331
+    tls: false
+    skip-cert-verify: true
+    tfo: false
+    dialer-proxy: 🛠️ 机场节点
+
+  - name: 🇯🇵 日本_vmess_ipv6_zj_中转
+    type: vmess
+    server: natjp5-2.bytevirt.net
+    port: 32515
+    uuid: 081dbf5a-d8b6-40c8-96f8-3c4ca9f50442
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    tfo: false
+    dialer-proxy: 🛠️ 机场节点
+
   - name: 🇸🇬 新加坡_vless_zj
     type: vless
     server: 188.253.125.140
     port: 443
     uuid: ae66a655-d529-412d-a7d5-2b933d18c4ee
+    encryption: none
     network: tcp
-    tls: true
-    udp: true
-    skip-cert-verify: true
     client-fingerprint: chrome
+    tls: true
+    servername: www.compliance.sony.eu
     reality-opts:
       public-key: SGhLv4Jp85RIdf-bvQnW9hD1tnYknzAdJtnRKtU6glg
       short-id: df4918768a0b64e4
-    sni: www.compliance.sony.eu
-    benchmark-url: http://www.apple.com/
-    benchmark-timeout: 5
+    udp: true
+    xudp: true
+    skip-cert-verify: true
+    tfo: false
+
   - name: 🇸🇬 新加坡_vless_zj_中转
     type: vless
     server: 188.253.125.140
     port: 443
     uuid: ae66a655-d529-412d-a7d5-2b933d18c4ee
+    encryption: none
     network: tcp
-    tls: true
-    udp: true
-    skip-cert-verify: true
     client-fingerprint: chrome
+    tls: true
+    servername: www.compliance.sony.eu
     reality-opts:
       public-key: SGhLv4Jp85RIdf-bvQnW9hD1tnYknzAdJtnRKtU6glg
       short-id: df4918768a0b64e4
-    sni: www.compliance.sony.eu
-    benchmark-url: http://www.apple.com/
-    benchmark-timeout: 5
+    udp: true
+    xudp: true
+    skip-cert-verify: true
+    tfo: false
     dialer-proxy: 🛠️ 机场节点
+    
 proxy-groups:
   - name: 🌐 手动选择
     type: select
     include-all: true
+    exclude-filter: "(家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
   - name: 🔯 故障转移
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
     lazy: true
     proxies:
-      - ✈️ yyss节点
-      - ✈️ zzsj节点
-      - ✈️ nb节点
       - 🚀 自建节点
+      - ✈️ yyss节点
+      - ✈️ nb节点
       - ✈️ mj节点
+
   - name: 🐟 漏网之鱼
     type: select
     proxies:
@@ -126,6 +165,7 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇸🇬 狮城节点
       - 🇺🇲 美国节点
+
   - name: 🚫 广告拦截
     type: select
     proxies:
@@ -143,23 +183,46 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇸🇬 狮城节点
       - 🇺🇲 美国节点
+
+  - name: 🤖 AI
+    type: fallback
+    url: https://gemini.google.com/favicon.ico
+    interval: 900
+    timeout: 900
+    expected-status: 204
+    empty-fallback: DIRECT
+    lazy: true
+    proxies:
+      - 🚀 自建节点
+      - 🤖 Gemini
+      - 🤖 GPT
+      - 🌐 手动选择
+
   - name: 🤖 GPT
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 300
-    filter: (?i)(AI|Gemini|GPT|Claude|.*zj)
+    tolerance: 100
+    interval: 600
+    timeout: 3000
+    filter: "(?i)(AI|Gemini|GPT|Claude|.*zj)"
     url: https://chatgpt.com/favicon.ico
+
   - name: 🤖 Gemini
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 300
-    filter: (?i)(Gemini|zj)
+    tolerance: 100
+    interval: 600
+    timeout: 3000
+    filter: "^(?:(?=.*Gemini)(?=.*[新日美])|.*zj).*"
     url: https://gemini.google.com/favicon.ico
+
   - name: 🍀 Google
     type: select
-    proxies:
+    proxies: &common_proxies
       - 🔯 故障转移
       - 🌐 手动选择
       - ♻️ 自动选择
@@ -172,36 +235,15 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇸🇬 狮城节点
       - 🇺🇲 美国节点
+
   - name: 👨🏿‍💻 GitHub
     type: select
-    proxies:
-      - 🔯 故障转移
-      - 🌐 手动选择
-      - ♻️ 自动选择
-      - ♻️ 香港自动
-      - ♻️ 日本自动
-      - ♻️ 狮城自动
-      - ♻️ 美国自动
-      - ♻️ 其他自动
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
+    proxies: *common_proxies
+
   - name: 🐬 OneDrive
     type: select
-    proxies:
-      - 🔯 故障转移
-      - 🌐 手动选择
-      - ♻️ 自动选择
-      - ♻️ 香港自动
-      - ♻️ 日本自动
-      - ♻️ 狮城自动
-      - ♻️ 美国自动
-      - ♻️ 其他自动
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
+    proxies: *common_proxies
+
   - name: 🪟 Microsoft
     type: select
     proxies:
@@ -218,81 +260,27 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇸🇬 狮城节点
       - 🇺🇲 美国节点
+
   - name: 🎵 TikTok
     type: select
-    proxies:
-      - 🔯 故障转移
-      - 🌐 手动选择
-      - ♻️ 自动选择
-      - ♻️ 香港自动
-      - ♻️ 日本自动
-      - ♻️ 狮城自动
-      - ♻️ 美国自动
-      - ♻️ 其他自动
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
+    proxies: *common_proxies
+
   - name: 🎶 Spotify
     type: select
-    proxies:
-      - 🔯 故障转移
-      - 🌐 手动选择
-      - ♻️ 自动选择
-      - ♻️ 香港自动
-      - ♻️ 日本自动
-      - ♻️ 狮城自动
-      - ♻️ 美国自动
-      - ♻️ 其他自动
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
+    proxies: *common_proxies
+
   - name: 📲 Telegram
     type: select
-    proxies:
-      - 🔯 故障转移
-      - 🌐 手动选择
-      - ♻️ 自动选择
-      - ♻️ 香港自动
-      - ♻️ 日本自动
-      - ♻️ 狮城自动
-      - ♻️ 美国自动
-      - ♻️ 其他自动
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
+    proxies: *common_proxies
+
   - name: 🎮 Games
     type: select
-    proxies:
-      - 🔯 故障转移
-      - 🌐 手动选择
-      - ♻️ 自动选择
-      - ♻️ 香港自动
-      - ♻️ 日本自动
-      - ♻️ 狮城自动
-      - ♻️ 美国自动
-      - ♻️ 其他自动
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
+    proxies: *common_proxies
+
   - name: 💶 PayPal
     type: select
-    proxies:
-      - 🔯 故障转移
-      - 🌐 手动选择
-      - ♻️ 自动选择
-      - ♻️ 香港自动
-      - ♻️ 日本自动
-      - ♻️ 狮城自动
-      - ♻️ 美国自动
-      - ♻️ 其他自动
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🇸🇬 狮城节点
-      - 🇺🇲 美国节点
+    proxies: *common_proxies
+
   - name: 📹 YouTube
     type: select
     proxies:
@@ -310,152 +298,229 @@ proxy-groups:
       - 🇯🇵 日本节点
       - 🇸🇬 狮城节点
       - 🇺🇲 美国节点
+
   - name: 🎥 NETFLIX
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
     lazy: true
     proxies:
       - 🎥 yyss_NETFLIX节点
       - 🎥 zzsj_NETFLIX节点
       - 🎥 nb_NETFLIX节点
       - 🌐 手动选择
+
   - name: 🎥 yyss_NETFLIX节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
-    interval: 900
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
     include-all: true
-    filter: (?i)(yyss.*(netflix|流媒体)|(netflix|流媒体).*yyss)
+    filter: "(?i)^(?=.*yyss)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
+
   - name: 🎥 zzsj_NETFLIX节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
-    interval: 900
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
     include-all: true
-    filter: (?i)(zzsj.*(netflix|流媒体)|(netflix|流媒体).*zzsj)
+    filter: "(?i)^(?=.*zzsj)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
+
   - name: 🎥 nb_NETFLIX节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
-    interval: 900
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
     include-all: true
-    filter: (?i)(nb.*(netflix|流媒体)|(netflix|流媒体).*nb)
+    filter: "(?i)^(?=.*nb)(?=.*(netflix|流媒体)).*$"
     url: https://www.netflix.com/favicon.ico
+
   - name: 📀 媒体影院
     type: fallback
     url: http://cp.cloudflare.com/generate_204
     interval: 900
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
     lazy: true
     proxies:
-      - ✈️ yyss节点
-      - ✈️ zzsj节点
-      - ✈️ nb节点
       - 🚀 自建节点
+      - ✈️ yyss节点
+      - ✈️ nb节点
+
   - name: 🇭🇰 香港节点
     type: select
     include-all: true
-    filter: (?i)(港|HK|Hong)
+    empty-fallback: DIRECT
+    filter: "(港|HK|(?i)Hong)"
+    exclude-filter: "(台|日|韩|新|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
   - name: 🇯🇵 日本节点
     type: select
     include-all: true
-    filter: (?i)(日|JP|Japan)
+    empty-fallback: DIRECT
+    filter: "(日|JP|(?i)Japan)"
+    exclude-filter: "(港|台|韩|新|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
   - name: 🇸🇬 狮城节点
     type: select
     include-all: true
-    filter: (?i)(新加坡|坡|狮城|SG|Singapore)
+    empty-fallback: DIRECT
+    filter: "(新加坡|坡|狮城|SG|Singapore)"
+    exclude-filter: "(台|日|韩|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
   - name: 🇺🇲 美国节点
     type: select
     include-all: true
-    filter: (?i)(美|US|States|America)
+    empty-fallback: DIRECT
+    filter: "(美|US|(?i)States|America)"
+    exclude-filter: "(港|台|韩|新|日|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
+
   - name: ♻️ 自动选择
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
-    interval: 900
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
     proxies:
       - 🚀 自建节点
-      - ✈️ zzsj节点
       - ✈️ mj节点
       - ✈️ yyss节点
       - ✈️ nb节点
     url: http://cp.cloudflare.com/generate_204
+
   - name: ♻️ 香港自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 900
-    filter: (?i)(港|HK|Hong)
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
+    filter: "(港|HK|(?i)Hong)"
+    exclude-filter: "(台|日|韩|新|深|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
     url: http://cp.cloudflare.com/generate_204
+
   - name: ♻️ 日本自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 900
-    filter: (?i)(日|JP|Japan)
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
+    filter: "(日|JP|(?i)Japan)"
+    exclude-filter: "(港|台|韩|新|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
     url: http://cp.cloudflare.com/generate_204
+
   - name: ♻️ 狮城自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 900
-    filter: ^(?!.*_zj_中转)(?i).*(新加坡|坡|狮城|SG|Singapore)
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
+    filter: "(新加坡|坡|狮城|SG|Singapore)"
+    exclude-filter: "(港|台|韩|日|美|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢|zj)"
     url: http://cp.cloudflare.com/generate_204
+
   - name: ♻️ 美国自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 900
-    filter: (?i)(美|US|States|America)
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
+    filter: "(美|US|(?i)States|America)"
+    exclude-filter: "(港|台|日|韩|新|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
     url: http://cp.cloudflare.com/generate_204
+
   - name: ♻️ 其他自动
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 900
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
+    exclude-filter: "(港|新|日|美|过滤|直连|家|官网|剩余|流量|套餐|到期|重置|更新|网站|客户端|如果|请|谢谢)"
     url: http://cp.cloudflare.com/generate_204
-  - name: ✈️ zzsj节点
-    type: url-test
-    lazy: true
-    include-all: true
-    interval: 900
-    filter: zzsj
-    url: http://cp.cloudflare.com/generate_204
+
   - name: ✈️ mj节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 900
-    filter: mj
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
+    filter: "mj"
     url: http://cp.cloudflare.com/generate_204
+
   - name: ✈️ yyss节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 900
-    filter: yyss
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
+    filter: "yyss"
     url: http://cp.cloudflare.com/generate_204
+
   - name: ✈️ nb节点
     type: url-test
+    empty-fallback: DIRECT
     lazy: true
     include-all: true
-    interval: 900
-    filter: nb
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
+    filter: "nb"
     url: http://cp.cloudflare.com/generate_204
-  - name: 🚀 自建节点
-    type: url-test
-    lazy: true
-    proxies:
-      - 🇯🇵 日本_vmess_ipv6_zj
-      - 🇸🇬 新加坡_vless_zj
-      - 🇸🇬 新加坡_vless_zj_中转
+
   - name: 🛠️ 机场节点
     type: url-test
     url: http://cp.cloudflare.com/generate_204
-    interval: 900
+    interval: 1200
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
     lazy: true
+    tolerance: 100
     proxies:
       - ✈️ yyss节点
-      - ✈️ zzsj节点
       - ✈️ nb节点
+
+  - name: 🚀 自建节点
+    type: url-test
+    empty-fallback: DIRECT
+    lazy: true
+    tolerance: 100
+    interval: 1200
+    timeout: 3000
+    url: http://cp.cloudflare.com/generate_204
+    proxies:
+      - 🇯🇵 日本_vmess_ipv6_zj
+      - 🇯🇵 日本_ss_ipv6_zj_ip
+      - 🇯🇵 日本_vless_ipv6_zj_ip
+      - 🇯🇵 日本_vmess_ipv6_zj_中转
+      - 🇸🇬 新加坡_vless_zj
+      - 🇸🇬 新加坡_vless_zj_中转
       
 rules:
   - DST-PORT,1883,DIRECT
