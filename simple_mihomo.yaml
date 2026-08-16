@@ -1,0 +1,449 @@
+mode: rule
+
+proxy-providers:
+  all:
+    type: http
+    url: "https://gist.githubusercontent.com/admbb/3f29c718a84c10cd1507cb1ff232f56d/raw/github_mihomo"
+    path: ./providers/all.yaml
+    interval: 86400
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.gstatic.com/generate_204"
+      interval: 900
+      timeout: 5000
+      lazy: true
+      expected-status: 204
+
+proxies:
+  - name: 🇯🇵 日本_vmess_ipv6_zj
+    server: natjp5-2.bytevirt.net
+    port: 32515
+    type: vmess
+    uuid: 081dbf5a-d8b6-40c8-96f8-3c4ca9f50442
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    tfo: true
+
+  - name: 🇯🇵 日本_ss_ipv6_zj_ip
+    server: "2a12:bec0:164:1007::"
+    port: 32516
+    type: ss
+    cipher: aes-256-gcm
+    password: MANw38CesW
+    tfo: true
+    dialer-proxy: 🛠️ 机场节点
+
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+log-level: warning
+global-client-fingerprint: chrome
+keep-alive-idle: 120
+keep-alive-interval: 10
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+        - 443
+        - 8443
+    QUIC:
+      ports:
+        - 443
+        - 8443
+  skip-domain:
+    - Mijia Cloud
+    - +.push.apple.com
+    - www-d-gstatic-d-com-s-gmn.v.tuangouai.com
+    - "*.gstatic.com"
+    - cp.cloudflare.com
+    - captive.apple.com
+    - "*.apple.com"
+    - router.asus.com
+    - "*.lan"
+    - "*.local"
+
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  strict-route: true
+  endpoint-independent-nat: true
+
+dns:
+  enable: true
+  cache-algorithm: arc
+  listen: 0.0.0.0:1053
+  ipv6: false
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - "rule-set:fakeipfilter_domain"
+
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+
+  nameserver:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+
+  nameserver-policy:
+    "rule-set:cn_domain":
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
+
+external-controller: 127.0.0.1:9090
+secret: "88888888"
+external-ui: ui
+external-ui-name: metacubexd
+external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+
+proxy-groups:
+  - name: 🔯 故障转移
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 1800
+    timeout: 3000
+    expected-status: 204
+    empty-fallback: DIRECT
+    lazy: true
+    proxies:
+      - 🚀 自建节点
+      - 🛠️ 机场节点
+
+  - name: 🚀 自建节点
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 1800
+    timeout: 3000
+    tolerance: 100
+    lazy: true
+    proxies:
+      - 🇯🇵 日本_vmess_ipv6_zj
+      - 🇯🇵 日本_ss_ipv6_zj_ip
+
+  - name: 🛠️ 机场节点
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 1800
+    timeout: 3000
+    tolerance: 100
+    lazy: true
+    use:
+      - all
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - DIRECT
+      - 🔯 故障转移
+      - 🛠️ 机场节点
+      - 🚀 自建节点
+
+  - name: 🚫 广告拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+      - 🔯 故障转移
+      - 🛠️ 机场节点
+      - 🚀 自建节点
+
+rules:
+  - DST-PORT,6881-6889,DIRECT
+  - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,google_domain)),REJECT
+  - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,youtube_domain)),REJECT
+
+  - DST-PORT,22,DIRECT
+  - DST-PORT,1883,DIRECT
+  - DST-PORT,8123,DIRECT
+
+  - RULE-SET,private_domain,DIRECT
+  - RULE-SET,private_ip,DIRECT,no-resolve
+
+  - RULE-SET,ads_domain,🚫 广告拦截
+  - RULE-SET,trackerslist_domain,DIRECT
+  - RULE-SET,reject_rules,🚫 广告拦截
+  - RULE-SET,AWAvenue-Ads_domain,🚫 广告拦截
+
+  - RULE-SET,gemini_domain,🔯 故障转移
+  - RULE-SET,openai_domain,🔯 故障转移
+  - RULE-SET,ai_domain,🔯 故障转移
+  - RULE-SET,ai_ip,🔯 故障转移,no-resolve
+
+  - RULE-SET,youtube_domain,🔯 故障转移
+  - RULE-SET,netflix_domain,🔯 故障转移
+  - RULE-SET,netflix_ip,🔯 故障转移,no-resolve
+  - RULE-SET,spotify_domain,🔯 故障转移
+  - RULE-SET,tiktok_domain,🔯 故障转移
+  - RULE-SET,telegram_domain,🔯 故障转移
+  - RULE-SET,telegram_ip,🔯 故障转移,no-resolve
+  - RULE-SET,media_rules,🔯 故障转移
+
+  - RULE-SET,google_domain,🔯 故障转移
+  - RULE-SET,google_ip,🔯 故障转移,no-resolve
+  - RULE-SET,github_domain,🔯 故障转移
+  - RULE-SET,paypal_domain,🔯 故障转移
+  - RULE-SET,apple_domain,DIRECT
+  - RULE-SET,apple_ip,DIRECT,no-resolve
+  - RULE-SET,accept_rules,🔯 故障转移
+
+  - RULE-SET,steamcn_domain,DIRECT
+  - RULE-SET,games_direct_domain,DIRECT
+  - RULE-SET,steam_domain,🔯 故障转移
+  - RULE-SET,epic_domain,🔯 故障转移
+  - RULE-SET,origin_domain,🔯 故障转移
+  - RULE-SET,ea_domain,🔯 故障转移
+  - RULE-SET,playstation_domain,🔯 故障转移
+  - RULE-SET,xbox_domain,🔯 故障转移
+  - RULE-SET,nintendo_domain,🔯 故障转移
+  - RULE-SET,games_proxy_domain,🔯 故障转移
+
+  - RULE-SET,proxy_domain,🔯 故障转移
+
+  - DOMAIN-SUFFIX,wensitang.site,DIRECT
+  - DOMAIN-SUFFIX,frp-cat.com,DIRECT
+  - RULE-SET,cn_domain,DIRECT
+  - RULE-SET,cn_ip,DIRECT,no-resolve
+
+  - MATCH,🐟 漏网之鱼
+
+rule-anchor:
+  ip: &ip
+    type: http
+    behavior: ipcidr
+    format: mrs
+
+  domain: &domain
+    type: http
+    behavior: domain
+    format: mrs
+
+  class: &class
+    type: http
+    behavior: classical
+    format: text
+
+rule-providers:
+  ads_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ads-all.mrs
+    interval: 42800
+
+  trackerslist_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/trackerslist.mrs
+    interval: 43100
+
+  AWAvenue-Ads_domain:
+    <<: *domain
+    url: https://gcore.jsdelivr.net/gh/TG-Twilight/AWAvenue-Ads-Rule@main/Filters/AWAvenue-Ads-Rule-Clash.mrs
+    interval: 43400
+
+  media_rules:
+    <<: *class
+    url: https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/media_rules.list
+    interval: 43700
+
+  accept_rules:
+    <<: *class
+    url: https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/accept_rules.list
+    interval: 44000
+
+  reject_rules:
+    <<: *class
+    url: https://raw.githubusercontent.com/admbb/sdasfdscxzcdssfeasasdsddw/refs/heads/main/reject_rules.list
+    interval: 44300
+
+  openai_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/openai.mrs
+    interval: 84100
+
+  gemini_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google-gemini.mrs
+    interval: 84500
+
+  ai_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-ai-!cn.mrs
+    interval: 84900
+
+  ai_ip:
+    <<: *ip
+    url: https://fastly.jsdelivr.net/gh/666OS/rules@release/mihomo/ip/AI.mrs
+    interval: 85300
+
+  youtube_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/youtube.mrs
+    interval: 85700
+
+  netflix_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/netflix.mrs
+    interval: 86100
+
+  spotify_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/spotify.mrs
+    interval: 86500
+
+  tiktok_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs
+    interval: 86900
+
+  steam_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam.mrs
+    interval: 87300
+
+  epic_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/epicgames.mrs
+    interval: 87700
+
+  ea_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/ea.mrs
+    interval: 88100
+
+  origin_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/origin.mrs
+    interval: 88500
+
+  xbox_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/xbox.mrs
+    interval: 88900
+
+  playstation_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/playstation.mrs
+    interval: 89300
+
+  nintendo_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/nintendo.mrs
+    interval: 89700
+
+  games_proxy_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games-!cn.mrs
+    interval: 90100
+
+  google_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/google.mrs
+    interval: 90500
+
+  github_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/github.mrs
+    interval: 90900
+
+  telegram_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/telegram.mrs
+    interval: 91300
+
+  paypal_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/paypal.mrs
+    interval: 91700
+
+  proxy_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/geolocation-!cn.mrs
+    interval: 92900
+
+  steamcn_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/steam@cn.mrs
+    interval: 170200
+
+  games_direct_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-games@cn.mrs
+    interval: 170800
+
+  apple_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/apple.mrs
+    interval: 171400
+
+  fakeipfilter_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/wwqgtxx/clash-rules@release/fakeip-filter.mrs
+    interval: 172000
+
+  private_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/private.mrs
+    interval: 172600
+
+  cn_domain:
+    <<: *domain
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/cn.mrs
+    interval: 173200
+
+  netflix_ip:
+    <<: *ip
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/netflix.mrs
+    interval: 173800
+
+  google_ip:
+    <<: *ip
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/google.mrs
+    interval: 174400
+
+  telegram_ip:
+    <<: *ip
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/telegram.mrs
+    interval: 175000
+
+  apple_ip:
+    <<: *ip
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo-lite/geoip/apple.mrs
+    interval: 175600
+
+  private_ip:
+    <<: *ip
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/private.mrs
+    interval: 176200
+
+  cn_ip:
+    <<: *ip
+    url: https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geoip/cn.mrs
+    interval: 176800
