@@ -129,6 +129,16 @@ proxy-groups:
   # =========================================
   # 🤖 2. 应用与网站分流组
   # =========================================
+  - name: 🤖 AI
+    type: fallback
+    url: https://gemini.google.com/favicon.ico
+    interval: 900
+    timeout: 900
+    expected-status: 204
+    empty-fallback: DIRECT
+    lazy: true
+    proxies: [🚀 自建节点, 🤖 Gemini, 🤖 GPT, 🌐 手动选择]
+    
   - name: 🤖 GPT
     type: url-test
     empty-fallback: DIRECT
@@ -424,10 +434,10 @@ rules:
   - RULE-SET,AWAvenue-Ads_domain,🚫 广告拦截
 
   # === 3. AI 服务 ===
-  - RULE-SET,gemini_domain,🤖 Gemini
-  - RULE-SET,openai_domain,🤖 GPT
-  - RULE-SET,ai_domain,🤖 GPT
-  - RULE-SET,ai_ip,🤖 GPT,no-resolve
+  - RULE-SET,gemini_domain,🤖 AI
+  - RULE-SET,openai_domain,🤖 AI
+  - RULE-SET,ai_domain,🤖 AI
+  - RULE-SET,ai_ip,🤖 AI,no-resolve
 
   # === 4. 流媒体与社交平台 ===
   - RULE-SET,youtube_domain,📹 YouTube
