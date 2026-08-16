@@ -70,8 +70,8 @@ proxy-groups:
     timeout: 3000
     lazy: true
     proxies:
-      - 🛠️ 机场节点
       - 🚀 自建节点
+      - 🛠️ 机场节点
 
   - name: 🛠️ 机场节点
     type: url-test
@@ -84,15 +84,14 @@ proxy-groups:
       - all
 
   - name: 🚀 自建节点
-    type: url-test
+    type: fallback
     url: http://cp.cloudflare.com/generate_204
     interval: 1800
     timeout: 3000
     lazy: true
-    tolerance: 100
     proxies:
-      - 🇯🇵 日本_vmess_ipv6_zj
       - 🇯🇵 日本_ss_ipv6_zj_ip
+      - 🇯🇵 日本_vmess_ipv6_zj
 
   - name: 🐟 漏网之鱼
     type: select
